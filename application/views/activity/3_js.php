@@ -20,8 +20,22 @@
 				$('#original').attr('style','display:block;width:'+img.width+'px;margin:0 auto;');
 			
 			}
+			var timecount;
+			var count =0;
+			function progress(){
+								
+				$("#progressbar").css("width",(count/200)*100+"%");
+				count++;
+				if(count==201){
+					clearInterval(timecount);
+					count=0;
+				}
+			}
 
 			function pixelate(o) {
+				clearInterval(timecount);
+				count = 0;
+				
 				var pixelOptions = [{
 					shape : 'diamond',
 					resolution : 48,
@@ -35,13 +49,16 @@
 					resolution : 8,
 					size : 6
 				}];
-
+				
+				$("#progressbar").css("width","0%");
+				
 				document.getElementById('imgProcessed').outerHTML='<img id="imgProcessed" src="" style="margin:0 auto;display:block;" alt="">';
 
 				var $imgOrig = document.getElementById('imgOriginal');
 				var $imgProc = document.getElementById('imgProcessed');
 				
 				$imgProc.setAttribute('src', $imgOrig.src);
+				timecount=setInterval("progress()",100);
 
 				var img = $imgProc;
 				if (img) {
@@ -59,7 +76,8 @@
 				}
 
 			}
-						
+			
+
 
 				
 		</script>
