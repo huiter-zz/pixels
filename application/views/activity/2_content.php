@@ -23,7 +23,7 @@
                   <div class="control-group">
                     <label class="control-label" for="focusedInput">名字</label>
                     <div class="controls">
-                      <input class="input-xlarge focused" id="name" type="text" placeholder="我是xxx">
+                      <input class="input-xlarge focused" id="name" type="text" placeholder="最多可输入8个字" maxlength="8">
                     </div>
                   </div>
                 </fieldset>
@@ -48,7 +48,7 @@
                             <tbody>
                               <tr>
                                 <td width="15px"><span class="badge badge-success">1</span></td>
-                                <td width="60px"><code><?php echo $tetris[0]['score'];?></code></td>
+                                <td width="15px"><code><?php echo $tetris[0]['score'];?></code></td>
                                 <td><?php echo $tetris[0]['name'];?></td>
                               </tr>
                               <tr>

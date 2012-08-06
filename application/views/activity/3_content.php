@@ -35,7 +35,7 @@
 							</div>
 						</div>
 					</div>
-					<div id="placeForImage" class="modal hide fade" style="left:40%;width:800px;top:50%;">
+					<div id="placeForImage" class="modal hide fade" style="left:50%;width:800px;top:50%; margin: -250px 0px 0px -400px">
 						<div class="modal-header">
 			                <button type="button" class="close" data-dismiss="modal">×</button>
 			                <h3>等待10秒左右。<code>进度条是假的。</code></h3>
