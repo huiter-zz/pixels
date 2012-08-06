@@ -24,9 +24,9 @@
 					<div class="span12">
 						<h4>原始图片</h4>
 						<div class="thumbnail " >
-							<div id="original" style="display:block;width:400px;margin:0 auto;">
+							<div id="original" style="">
 							<a > 
-								<img id="imgOriginal"  src="http://placehold.it/400x200" alt=""> 
+								<img id="imgOriginal"  src="http://placehold.it/400x200" style="display:block;margin:0 auto;"alt=""> 
 							</a>
 							</div>
 							<hr>

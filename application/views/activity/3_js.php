@@ -16,9 +16,6 @@
 				var $imgProc = document.getElementById('imgProcessed');
 
 				$imgOrig.setAttribute('src', $imgUrl.value);
-
-				$('#original').attr('style','display:block;width:'+img.width+'px;margin:0 auto;');
-			
 			}
 			var timecount;
 			var count =0;
