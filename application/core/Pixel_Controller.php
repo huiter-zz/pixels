@@ -15,7 +15,7 @@ class Pixel_Controller extends CI_Controller
         parent::__construct();
         $this->load->helper('url');
 		$this->load->database();
-		$this->load->library('rest', array('server' => 'http://pixels.sinaapp.com/'));	
+		$this->load->library('rest', array('server' => base_url()));	
 
         /*Catch 当前加载的Method,Class 用来做A 标签的 Active*/
         $this->template['url'] = $this->router->fetch_method();
