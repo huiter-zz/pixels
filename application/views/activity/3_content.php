@@ -48,6 +48,9 @@
                 				<img id="imgProcessed" src="http://placehold.it/400x200" alt="">
                 			</div>
               			 </div>
+              			 <div class="modal-footer">
+			                <a onclick="saveAsPNG();" rel="popover" data-placement="top" data-content="等待处理完后，点击此按钮即可下载图片。下载后，请重命名为xxx.png。" data-original-title="说明" class="btn btn-primary">保存图片</a>
+			              </div>
 						
 					</div>
 				</div>

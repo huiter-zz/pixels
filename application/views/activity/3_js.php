@@ -1,4 +1,6 @@
 		<script src="http://storage.aliyun.com/pixels/assets/js/close-pixelate.js"></script>
+		<script src="http://storage.aliyun.com/pixels/assets/js/canvas2image.js"></script>
+		<script src="http://storage.aliyun.com/pixels/assets/js/base64.js"></script>
 		<!-- Photo Pixelator BEGIN -->
 		<script type="text/javascript">
 			function getImageFromUrl() {
@@ -72,6 +74,11 @@
 					alert('没有图像');
 				}
 
+			}
+			function saveAsPNG(){
+				var oCanvas = document.getElementById("imgProcessed");
+				
+				Canvas2Image.saveAsPNG(oCanvas);  // will prompt the user to save the image as PNG.  
 			}
 			
 
