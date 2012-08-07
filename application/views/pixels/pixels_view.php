@@ -77,5 +77,11 @@
         <script src="http://storage.aliyun.com/pixels/assets/js/bootstrap.min.js"></script> 
         <script src="http://storage.aliyun.com/pixels/assets/js/application.js"></script>  
         <script src="http://storage.aliyun.com/pixels/assets/js/pixels.js"></script>  
+            <!-- 百度统计 BEGIN -->
+    <script type="text/javascript">
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fead5f49f1d56d4ba53460b22fa197858' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <!-- 百度统计 END -->
     </body>
 </html>
