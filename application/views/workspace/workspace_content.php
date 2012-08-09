@@ -155,7 +155,7 @@
 			</div>
 			
 			<!-- 取色部分图标 -->
-			<div style="position:absolute; left:300px; top:720px;">
+			<div style="position:absolute; left:300px; top:715px;">
 				<div class="cx-dialog cx-colorpicker">
 						<div class="cx-colorpalette">				
 							<div id="3D" class="cx-button cx-icon-colorpicker colorpick" style="display:none;"title="取色管"></div>
