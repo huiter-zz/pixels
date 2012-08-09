@@ -651,7 +651,7 @@
 						/*
 						 * 像素底部平面
 						 */
-						plane = new THREE.Mesh( new THREE.PlaneGeometry(config.planeSize, config.planeSize, config.planeSize/config.voxelSize, config.planeSize/config.voxelSize), new THREE.MeshBasicMaterial( { color: 0x999999, wireframe: false } ) );
+						plane = new THREE.Mesh( new THREE.PlaneGeometry(config.planeSize, config.planeSize, config.planeSize/config.voxelSize, config.planeSize/config.voxelSize), new THREE.MeshBasicMaterial( { color: 0x999999, wireframe: true } ) );
 						
 						this.interacts.plane=plane;
 									 
