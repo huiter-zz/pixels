@@ -1,4 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
+require_once APPPATH.'/libraries/oss/sdk.class.php';
+require_once APPPATH.'/libraries/oss/conf.inc.php';
 
 /**
  * Example
@@ -41,7 +43,43 @@ class V1 extends REST_Controller
         }
 
     }
+    //作品提交
 
+    function work_post()
+    {
+       
+        if(!$this->session->userdata('userdata'))
+        {
+           $this->response(array('error' => '你还没有登陆'), 403);
+        }
+        
+        if(!$this->input->post('work'))
+        {
+             $this->response(array('error' => '没有获取到数据'), 400);
+        }
+        $oss_sdk_service = new ALIOSS();
+        $oss_sdk_service->set_debug_mode(FALSE);
+        //
+
+        //
+        $bucket = 'pixels';
+        $object = 'work/'.time().'.png';
+        
+        $content  = $this->post('work'); 
+        $content =base64_decode($content); 
+        $upload_file_options = array(
+            'content' => $content,
+            'length' => strlen($content),
+            ALIOSS::OSS_HEADERS => array(
+                'Expires' => '2014-10-01 08:00:00',
+            ),
+        );
+        $response = $oss_sdk_service ->upload_file_by_content($bucket,$object,$upload_file_options);
+        
+        $this->response(array('message' => $response,'con' => $content),200);    
+    }
+    
+  
     //个人喜欢集
     function like_get()
     {

@@ -77,8 +77,10 @@
 			}
 			function saveAsPNG(){
 				var oCanvas = document.getElementById("imgProcessed");
-				
-				Canvas2Image.saveAsPNG(oCanvas);  // will prompt the user to save the image as PNG.  
+				var work = Canvas2Image.saveAsPNG(oCanvas);  // will prompt the user to save the image as PNG. 
+				//var work = oCanvas.toDataURL("image/png");  
+				//work = work.replace('data:image/png;base64,','')
+				//$.post("/api/v1/work",{work:work},function( data ) {},"json") 
 			}
 			
 
