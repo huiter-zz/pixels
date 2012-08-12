@@ -176,7 +176,7 @@
 						</div>
 			    </div>
 			</div>
-
+		 <?php if($this->session->userdata('userdata')):?>
 			<div>
 				<a data-toggle="modal" href="#worksubmit" class="btn " id="workpush">发布作品</a>
 			</div>
@@ -200,13 +200,15 @@
 			              <p class="help-block"> 为作品添加上标签,使别人更容易发现它们。</p>
 			            </div>
 			          </div>
-        </fieldset>
-      </form>
+        			</fieldset>
+      			</form>
             </div>
             <div class="modal-footer">
               <a href="#" class="btn btn-primary"  id="workpost">提交</a>
             </div>
           </div>
+
+      <?php endif;?>
 		</div>
 		<hr>
 		
