@@ -34,11 +34,11 @@
                     <!-- Denglu Plugin BEGIN -->
                         <ul class="nav nav-pills" style="margin-top :20px;margin-left:35px;">
                             <li class="span2"><a target="_blank" style="height:15px;background:url(http://storage.aliyun.com/pixels/assets/img/denglu/SINA.png) no-repeat scroll 0 0 transparent;"href="http://open.denglu.cc/transfer/sina?appid=21390" title="用新浪微博账号登录"></a></li>
-                            <li class="span2"><a target="_blank" style="height:15px;background:url(http://storage.aliyun.com/pixels/assets/img/denglu/QQ.png) no-repeat scroll 0 0 transparent;"href="http://open.denglu.cc/transfer/QQ?appid=21390" title="用QQ账号登录"></a></li>
+                            <li class="span2"><a target="_blank" style="height:15px;background:url(http://storage.aliyun.com/pixels/assets/img/denglu/QQ.png) no-repeat scroll 0 0 transparent;"href="http://open.denglu.cc/transfer/qzone?appid=21390" title="用QQ账号登录"></a></li>
                             <li class="span2"><a target="_blank" style="height:15px;background:url(http://storage.aliyun.com/pixels/assets/img/denglu/RENREN.png) no-repeat scroll 0 0 transparent;"href="http://open.denglu.cc/transfer/renren?appid=21390" title="用人人网账号登录"></a></li>
-                            <li class="span2"><a target="_blank" style="height:15px;background:url(http://storage.aliyun.com/pixels/assets/img/denglu/DOUBAN.png) no-repeat scroll 0 0 transparent;"href="http://open.denglu.cc/transfer/DOUBAN?appid=21390" title="用豆瓣网账号登录"></a></li>
-                            <li class="span2"><a target="_blank" style="height:15px;background:url(http://storage.aliyun.com/pixels/assets/img/denglu/TAOBAO.png) no-repeat scroll 0 0 transparent;"href="http://open.denglu.cc/transfer/QQ?appid=21390" title="用淘宝账号登录"></a></li>
-                            <li class="span2"><a target="_blank" style="height:15px;background:url(http://storage.aliyun.com/pixels/assets/img/denglu/KAIXIN.png) no-repeat scroll 0 0 transparent;"href="http://open.denglu.cc/transfer/DOUBAN?appid=21390" title="用开心网账号登录"></a></li>
+                            <li class="span2"><a target="_blank" style="height:15px;background:url(http://storage.aliyun.com/pixels/assets/img/denglu/DOUBAN.png) no-repeat scroll 0 0 transparent;"href="http://open.denglu.cc/transfer/douban?appid=21390" title="用豆瓣网账号登录"></a></li>
+                            <li class="span2"><a target="_blank" style="height:15px;background:url(http://storage.aliyun.com/pixels/assets/img/denglu/TAOBAO.png) no-repeat scroll 0 0 transparent;"href="http://open.denglu.cc/transfer/taobao?appid=21390" title="用淘宝账号登录"></a></li>
+                            <li class="span2"><a target="_blank" style="height:15px;background:url(http://storage.aliyun.com/pixels/assets/img/denglu/KAIXIN.png) no-repeat scroll 0 0 transparent;"href="http://open.denglu.cc/transfer/kaixin001?appid=21390" title="用开心网账号登录"></a></li>
                         </ul>
                     <!-- Denglu Plugin END -->
                 </div>

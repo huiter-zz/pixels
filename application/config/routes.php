@@ -42,6 +42,7 @@ $route['default_controller'] = "/pixels";
 $route['404_override'] = '';
 $route['tag/(:any)'] = "tag/index/$1";
 $route['book/(:any)'] = "book/index/$1";
+$route['work/(:any)'] = "work/index/$1";
 $route['activity/(:any)'] = "activity/index/$1";
 
 /* End of file routes.php */
