@@ -12,7 +12,7 @@
 				</canvas>
 			</div>
         	<!-- 调色板 -->
-			<div id="colorpad" class="cx-dialog" style="left: 850px; top: 310px; z-index: 11; display: none; position: absolute;  ">
+			<div id="colorpad" class="cx-dialog" style="left: 500px; top: 100px; z-index: 11; display: none; position: absolute;  ">
 				<table class="cx-colorpad" cellpadding="0" cellspacing="0">
 					<tbody>	
 						<tr>

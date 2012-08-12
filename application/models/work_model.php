@@ -67,7 +67,7 @@ class Work_model extends CI_Model
     
     function get_tagwork($tagname,$page)
     {
-        $begin=($page-1)*3;
+        $begin=($page-1)*12;
 
         $this->db->select('*,work.createdate as workcreatedate');
         $this->db->from('work');
@@ -76,7 +76,7 @@ class Work_model extends CI_Model
         $this->db->join('user','user.uid = work.author');
         $this->db->where('tag.tagname',$tagname);
         $this->db->order_by("work.createdate","desc");
-        $this->db->limit(3,$begin);
+        $this->db->limit(12,$begin);
 
         $query = $this->db->get();
         return $query->result_array();

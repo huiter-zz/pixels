@@ -58,10 +58,10 @@ class Tag extends Pixel_Controller
 		else
 		{
 			$current_page=intval($current_page);
-			if($total_rows>=($current_page*3))
+			if($total_rows>=($current_page*12))
  				$current_page=$current_page;
 			else
-				$current_page=floor($total_rows/3)+1;
+				$current_page=floor($total_rows/12)+1;
 		}
 		
 		
@@ -98,7 +98,7 @@ class Tag extends Pixel_Controller
 			$this->load->library('pagination');
 			$config['base_url'] = "/tag/$tagname";
 			$config['total_rows'] = $total_rows;
-			$config['per_page'] = 2; 
+			$config['per_page'] = 12; 
 			$config['use_page_numbers'] = TRUE;
 			$config['num_links'] = 2;
 			$config['full_tag_open'] = '<div class="pagination"><ul class="pull-right">';

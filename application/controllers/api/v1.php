@@ -67,6 +67,9 @@ class V1 extends REST_Controller
         $tag[2] = $this->input->post('tag2');
         $tag[3] = $this->input->post('tag3');
 
+        $tag[1] = strtolower(trim($tag[1]));
+        $tag[2] = strtolower(trim($tag[2]));
+        $tag[3] = strtolower(trim($tag[3]));
 
     
         $this->load->model('work_model','',TRUE);
