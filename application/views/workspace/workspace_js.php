@@ -1788,17 +1788,21 @@
 		 			var cubejson = voxelPainter.CubeJSON();
  			 		e.preventDefault();
  			 		$('#worksubmit').modal('hide');
+ 			 		/*
                 	$.ajax({
                 	url : 'api/v1/work',
                 	type : 'POST',
                 	data　: {img:strDataURI,tag1:tag1,tag2:tag2,tag3:tag3,cubejson:cubejson},
-                	complete:function(x,t){ 
-                	alert("发布成功");
-                	history.go(0);
+                	complete:function(res){ 
+                	alert(res['message']);
+                	//history.go(0);
                 }
+                */
+                    $.post("/api/v1/work",{img:strDataURI,tag1:tag1,tag2:tag2,tag3:tag3,cubejson:cubejson},function( data ) {
+                    alert(data['message']);
+                    history.go(0);
+              },"json")
             });	
-        });
-		
 		}
 		
 		);

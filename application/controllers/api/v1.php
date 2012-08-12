@@ -50,17 +50,17 @@ class V1 extends REST_Controller
        
         if(!$this->session->userdata('userdata'))
         {
-           $this->response(array('error' => '你还没有登陆'), 403);
+           $this->response(array('message' => '你还没有登陆'), 403);
         }
         $userdata = $this->session->userdata('userdata');
         if(!$this->input->post('img'))
         {
-             $this->response(array('error' => 'no img'), 400);
+             $this->response(array('message' => 'no img'), 400);
         }
 
         if(!$this->input->post('cubejson'))
         {
-             $this->response(array('error' => 'no cubejson'), 400);
+             $this->response(array('message' => 'no cubejson'), 400);
         }
 
         $tag[1] = $this->input->post('tag1');
@@ -143,7 +143,7 @@ class V1 extends REST_Controller
         );
         $response = $oss_sdk_service ->upload_file_by_content($bucket,$object,$upload_file_options);
         
-        $this->response(NULL,200);    
+        $this->response(array('message' =>'发布成功' ),200);    
     }
     
   
