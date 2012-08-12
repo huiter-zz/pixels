@@ -18,6 +18,7 @@
             <div>
                 <hr>
                 <ul class="thumbnails">
+                <?php if (!empty($bestwork_info)):?>
                 <?php foreach ($bestwork_info as $key => $value):?>
                     <li class="span3">
                         <div class="thumbnail">
@@ -51,6 +52,7 @@
                     </li>
 
                 <?php endforeach;?>
+            <?php endif;?>
                     
                 </ul>
             </div>

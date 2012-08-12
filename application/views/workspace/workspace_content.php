@@ -6,7 +6,7 @@
 </ul>
 <!--画布-->
 <p class="offset2"><span class="label label-info">说明!</span> 下面是工作间的BETA版，目前只提供2D的编辑功能，更多功能尽请期待。^_^ ____</p>
-<div style="height:500px;">
+<div style="height:500px;position:relative;">
             <div style="margin:0 auto; width:700px;">
 				<canvas tabindex="1" id="voxelCanvas">
 				</canvas>
@@ -141,7 +141,7 @@
 			</div>
 
 			<!--工具栏图标-->
-			<div style="position:absolute; left:220px; top:310px;">
+			<div style="position:absolute; left:50px; top:110px;">
 				<div class="cx-dialog cx-toolbox">
 					<div class="cx-toolbar">
 						<div id="singleCube" class="cx-button cx-icon-addcube" title="添加方块"></div>
@@ -155,7 +155,7 @@
 			</div>
 			
 			<!-- 取色部分图标 -->
-			<div style="position:absolute; left:300px; top:715px;">
+			<div style="position:absolute; left:200px; top:460px;">
 				<div class="cx-dialog cx-colorpicker">
 						<div class="cx-colorpalette">				
 							<div id="3D" class="cx-button cx-icon-colorpicker colorpick" style="display:none;"title="取色管"></div>
@@ -176,6 +176,37 @@
 						</div>
 			    </div>
 			</div>
+
+			<div>
+				<a data-toggle="modal" href="#worksubmit" class="btn " id="workpush">发布作品</a>
+			</div>
+
+			<div id="worksubmit" class="modal hide fade">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">×</button>
+              <h3>发布作品</h3>
+            </div>
+            <div class="modal-body">
+            	<img id="picture" width=400 style="display:block;margin:0 auto;">
+            	<hr>
+			       <form class="form-horizontal">
+			        <fieldset>
+			          <div class="control-group">
+			            <label class="control-label">标签:</label>
+			            <div class="controls docs-input-sizes">
+			              <input class="input-mini" type="text" placeholder="" id="tag1" value="">
+			              <input class="input-mini" type="text" placeholder="" id="tag2" value="">
+			              <input class="input-mini" type="text" placeholder="" id="tag3" value="">
+			              <p class="help-block"> 为作品添加上标签,使别人更容易发现它们。</p>
+			            </div>
+			          </div>
+        </fieldset>
+      </form>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn btn-primary"  id="workpost">提交</a>
+            </div>
+          </div>
 		</div>
 		<hr>
 		

@@ -17,7 +17,15 @@ class Tag_model extends CI_Model {
         $query = $this->db->get();
         return $query->row_array();
     }
+    function get_tagid_bytagname($tagname)
+    {
 
+        $this->db->select('tagid');
+        $this->db->from('tag');
+        $this->db->like('tag.tagname', $tagname); 
+        $query = $this->db->get();
+        return $query->row_array();
+    }
     function get_entrys_bytagids($tagids)
     {
 
@@ -32,6 +40,14 @@ class Tag_model extends CI_Model {
     {
         
         $this->db->set('likesnum','likesnum+1',FALSE);
+        $this->db->where_in('tagname',$tagnames);
+        $this->db->update('tag');        
+    }
+
+    function updata_addwork($tagnames)
+    {
+        
+        $this->db->set('worksnum','worksnum+1',FALSE);
         $this->db->where_in('tagname',$tagnames);
         $this->db->update('tag');        
     }

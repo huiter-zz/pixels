@@ -88,9 +88,10 @@ class Work_model extends CI_Model
         $query = $this->db->query($sql);
     }
 
-    function insert_entry($work_data)
-    { 
-        $this->db->insert('work', $work_data);
+    function insert_entry($data)
+    {
+
+        $this->db->insert('work', $data);
         return mysql_insert_id();
     }
 

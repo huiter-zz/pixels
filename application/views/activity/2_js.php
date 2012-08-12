@@ -314,14 +314,14 @@
         createPreviewShape();
 
         getNewShape();
-
-              $(document).ready(function() {
-          $("#scoresubmit").click(function() {
-             event.preventDefault();     
-             var name = $("#name").attr('value');
-             $.post("/api/v1/tetris",{name:name,score:score},function( data ) {
-                         history.go(0);
-                   },"json")
+        $(document).ready(function() {
+        $("#scoresubmit").click(function() {
+            event.preventDefault();     
+            var name = $("#name").attr('value');
+            $('#myModal').modal('hide');
+            $.post("/api/v1/tetris",{name:name,score:score},function( data ) {
+                       history.go(0);
+                 },"json")
           });
       });
 

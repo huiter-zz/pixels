@@ -24,7 +24,7 @@ class Tag extends Pixel_Controller
 		$this->load->model('tag_work_model','',TRUE);
 		$this->load->model('work_model','',TRUE);
 	   
-
+		$tagname=rawurldecode($tagname) ;
 
 		$tag_result=$this->tag_model->get_entry_bytagname($tagname);
 

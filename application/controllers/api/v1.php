@@ -52,20 +52,72 @@ class V1 extends REST_Controller
         {
            $this->response(array('error' => '你还没有登陆'), 403);
         }
-        
-        if(!$this->input->post('work'))
+        $userdata = $this->session->userdata('userdata');
+        if(!$this->input->post('img'))
         {
-             $this->response(array('error' => '没有获取到数据'), 400);
+             $this->response(array('error' => 'no img'), 400);
         }
+
+        if(!$this->input->post('cubejson'))
+        {
+             $this->response(array('error' => 'no cubejson'), 400);
+        }
+
+        $tag[1] = $this->input->post('tag1');
+        $tag[2] = $this->input->post('tag2');
+        $tag[3] = $this->input->post('tag3');
+
+
+    
+        $this->load->model('work_model','',TRUE);
+        $this->load->model('tag_model','',TRUE);
+        $this->load->model('tag_work_model','',TRUE);
+
+        $tags = $tag[1].';'.$tag[2].';'.$tag[3].';';
+        $content  = $this->post('img');
+        $data['tags'] = $tags;
+        $data['author'] = $userdata['uid'];
+        $data['likesnum'] = 0;
+        $cubejsonname = time().rand(0,9);
+        $data['cubejson'] =  "http://storage.aliyun.com/pixels/work/".$cubejsonname.'.txt';
+        $data['createdate'] = date("Y-m-d");
+        $data['kind'] = 0;
+        $imgname = time().rand(0,9);
+        $data['img'] = "http://storage.aliyun.com/pixels/work/".$imgname.'.png';
+
+        $workid=$this->work_model->insert_entry($data);
+        foreach ($tag as $key => $value) 
+        {       
+            if(!empty($value))
+            {
+                $tagentry=$this->tag_model->get_tagid_bytagname($value);
+                
+                if(empty($tagentry))
+                {
+                    $tag_data['tagname']=$value;
+                    $tag_data['createdate'] = date("Y-m-d");
+                    $tag_data['bestauthor'] = 10000;
+                    $tag_data['likesnum'] =0;
+                    $tag_data['worksnum'] = 1;
+
+                    $tagid=$this->tag_model->insert_entry($tag_data);
+                }
+                else
+                {
+                    $tagid = $tagentry['tagid'];
+                    $this->tag_model->updata_addwork($value);
+                }
+                $tag_work_data['tagid'] = $tagid;
+                $tag_work_data['workid'] = $workid;
+                $this->tag_work_model->insert_entry($tag_work_data);
+            }
+        }
+
         $oss_sdk_service = new ALIOSS();
         $oss_sdk_service->set_debug_mode(FALSE);
-        //
-
-        //
         $bucket = 'pixels';
-        $object = 'work/'.time().'.png';
-        
-        $content  = $this->post('work'); 
+
+        $object = 'work/'.$imgname.'.png'; 
         $content =base64_decode($content); 
         $upload_file_options = array(
             'content' => $content,
@@ -75,8 +127,20 @@ class V1 extends REST_Controller
             ),
         );
         $response = $oss_sdk_service ->upload_file_by_content($bucket,$object,$upload_file_options);
+
+
+        $object = 'cubejson/'.$cubejsonname.'.txt'; 
+        $content = $this->input->post('cubejson');
+        $upload_file_options = array(
+            'content' => $content,
+            'length' => strlen($content),
+            ALIOSS::OSS_HEADERS => array(
+                'Expires' => '2014-10-01 08:00:00',
+            ),
+        );
+        $response = $oss_sdk_service ->upload_file_by_content($bucket,$object,$upload_file_options);
         
-        $this->response(array('message' => $response,'con' => $content),200);    
+        $this->response(NULL,200);    
     }
     
   

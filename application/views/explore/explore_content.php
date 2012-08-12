@@ -18,6 +18,7 @@
           </tr>
           </thead>
           <tbody>
+            <?php if(!empty($hottag_info)):?>
           <?php foreach ($hottag_info as $key => $value) :?>
           <tr>
               <td>
@@ -29,57 +30,35 @@
               
           </tr> 
         <?php endforeach;?>
-                     
+                     <?php endif;?>
       </tbody>
       </table>
   </div>
 
 <div class="span4">
   <h1><small>发布状态</small></h1>
-    <div class="accordion" id="accordion2">
+      <div class="accordion" id="accordion1">
+<?php if(!empty($lastwork_info)):?>
+   <?php foreach ($lastwork_info as $key => $value) :?> 
+
       <div class="accordion-group">
         <div class="accordion-heading">
-          <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-            <a href="/book/<?php echo $lastwork_info[0]['authorid']?>"><?php echo $lastwork_info[0]['authorname']?></a>于<?php echo $lastwork_info[0]['createdate']?>创造了此作品.
+          <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion<?php echo $key;?>" href="#collapse<?php echo $key;?>">
+            <a href="/book/<?php echo $value['authorid']?>"><?php echo $value['authorname']?></a>于<?php echo $value['createdate']?>创造了此作品.
           </span>
         </div>
-        <div id="collapseOne" class="accordion-body collapse" style="height: 0px; ">
+        <div id="collapse<?php echo $key;?>" class="accordion-body collapse" style="height: 0px; ">
           <div class="accordion-inner">
-            <a href="/work/<?php echo $lastwork_info[0]['workid']?>">
-            <img class="JIATHIS_IMG_OK" src="http://storage.aliyun.com/pixels/image/px.png" alt="">
+            <a href="/work/<?php echo $value['workid']?>">
+            <img src="<?php echo $value['img']?>" alt="">
           </a>
           </div>
         </div>
       </div>
-      <div class="accordion-group">
-        <div class="accordion-heading">
-          <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-            <a href="/book/<?php echo $lastwork_info[1]['authorid']?>"><?php echo $lastwork_info[1]['authorname']?></a>于<?php echo $lastwork_info[1]['createdate']?>创造了此作品.
-          </span>
-        </div>
-        <div id="collapseTwo" class="accordion-body collapse" style="height: 0px; ">
-          <div class="accordion-inner">
-            <a href="/work/<?php echo $lastwork_info[2]['workid']?>">
-            <img class="JIATHIS_IMG_OK" src="http://storage.aliyun.com/pixels/image/px.png" alt="">
-          </a>
-          </div>
-        </div>
+
+  <?php endforeach;?>
+  <?php endif;?>
       </div>
-      <div class="accordion-group">
-        <div class="accordion-heading">
-          <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-            <a href="/book/<?php echo $lastwork_info[2]['authorid']?>"><?php echo $lastwork_info[2]['authorname']?></a>于<?php echo $lastwork_info[2]['createdate']?>创造了此作品.
-          </span>
-        </div>
-        <div id="collapseThree" class="accordion-body in collapse" style="height: auto; ">
-          <div class="accordion-inner">
-            <a href="/work/<?php echo $lastwork_info[2]['workid']?>">
-            <img class="JIATHIS_IMG_OK" src="http://storage.aliyun.com/pixels/image/px.png" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
 </div>
   
 </div>

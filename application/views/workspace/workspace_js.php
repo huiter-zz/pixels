@@ -1,5 +1,7 @@
-   <script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/js/buttonjs/jquery.dragndrop.js"></script>
-   <script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/js/buttonjs/buttonjs.js"></script>
+ 	<script src="http://storage.aliyun.com/pixels/assets/js/canvas2image.js"></script>
+	<script src="http://storage.aliyun.com/pixels/assets/js/base64.js"></script>
+   	<script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/js/buttonjs/jquery.dragndrop.js"></script>
+   	<script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/js/buttonjs/buttonjs.js"></script>
 	<script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/js/canvasjs/jquery-ui-1.8.20.custom.min.js"></script>
    	<script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/js/canvasjs/Underscore.js"></script>
 	<script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/js/canvasjs/backbone.js"></script>
@@ -9,6 +11,13 @@
 	<script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/js/canvasjs/eye.js"></script>
 	<script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/js/canvasjs/utils.js"></script>
 	<script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/js/canvasjs/layout.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+
+
+	});
+
+	</script>
 
 	<script type="text/javascript">
 		$(document).ready(
@@ -1259,6 +1268,31 @@
 						var dataUri	= "data:application/json;charset=utf-8,"+JSON.stringify(voxels.toJSON());
 						window.open( dataUri, 'mywindow' );
 					},
+
+					CubeJSON:function(){
+
+						var voxels=new cubeSaveList,
+							children=this.models.scene.children,
+							order=0
+						;
+						/*
+						 * id相同不会被add
+						 */
+						cubes.each(function(cube){
+							var v=new cubeSaveModel({
+								x:cube.get('cube').position.x,
+								y:cube.get('cube').position.y,
+								z:cube.get('cube').position.z,
+								color:cube.get('cube').material.color.getHex(),
+								id:order++
+							})
+							voxels.add(v);
+							//v.save();
+						});	
+						// open a window with the json
+						var data= JSON.stringify(voxels.toJSON());
+						return data;
+					},
 					/*
 					 * 对获得的JSON对象进行渲染
 					 */
@@ -1738,6 +1772,32 @@
 					);
 				});
 				
+				$("#workpush").click(function(e){
+ 					var oCanvas = document.getElementById("voxelCanvas");
+ 					var strDataURI = oCanvas.toDataURL(); 
+ 					$('#picture').attr("src",strDataURI);
+        		});
+				
+				$("#workpost").click(function(e){
+					var oCanvas = document.getElementById("voxelCanvas");
+		 			var strDataURI = oCanvas.toDataURL(); 
+		 			strDataURI = strDataURI.replace('data:image/png;base64,','')
+		 			var tag1 = $('#tag1').attr('value');
+		 			var tag2 = $('#tag2').attr('value');
+		 			var tag3 = $('#tag3').attr('value');
+		 			var cubejson = voxelPainter.CubeJSON();
+ 			 		e.preventDefault();
+ 			 		$('#worksubmit').modal('hide');
+                	$.ajax({
+                	url : 'api/v1/work',
+                	type : 'POST',
+                	data　: {img:strDataURI,tag1:tag1,tag2:tag2,tag3:tag3,cubejson:cubejson},
+                	complete:function(x,t){ 
+                	alert("发布成功");
+                	history.go(0);
+                }
+            });	
+        });
 		
 		}
 		

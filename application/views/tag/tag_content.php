@@ -36,10 +36,11 @@
             <div>
                 <hr>
                 <ul class="thumbnails">
+                <?php if (!empty($works_info)):?>
                 <?php foreach ($works_info as $key => $value):?>
                     <li class="span3">
                         <div class="thumbnail">
-                            <a data-toggle="modal" href="#myModal"><img class="JIATHIS_IMG_OK" src="<?php echo $value['img'] ?>" alt=""></a>
+                            <a data-toggle="modal" href="#modal<?php echo $value['workid'] ?>"><img class="JIATHIS_IMG_OK" src="<?php echo $value['img'] ?>" alt=""></a>
                             <div class="caption">
                                 <i class="icon-tag"></i>
                                 <?php $tags =explode(";",$value['tags']);?>
@@ -61,14 +62,15 @@
                                 </div>
                                 </div>
                         </div>
-                        <div id="myModal" class="modal hide fade">
+                        <div id="modal<?php echo $value['workid']?>" class="modal hide fade">
                             <div class="modal-body">
-                                <img class="JIATHIS_IMG_OK" src="/assets/img/650x450.gif" alt=""></a>
+                                <img src="<?php echo $value['img'] ?>" alt=""></a>
                             </div>
                         </div>
                     </li>
 
                 <?php endforeach;?>
+            <?php endif;?>
                     
                 </ul>
             </div>

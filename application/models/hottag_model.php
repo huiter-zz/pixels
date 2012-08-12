@@ -29,7 +29,7 @@ class Hottag_model extends CI_Model {
     {
         $this->db->select('*');
         $this->db->from('hottag');
-        $this->db->join('tag','hottag.hottagid = tag.tagid');
+        $this->db->join('tag','hottag.tagid = tag.tagid');
         $this->db->join('user','tag.bestauthor = user.uid');
    
         $query = $this->db->get();
