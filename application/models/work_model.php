@@ -16,7 +16,7 @@ class Work_model extends CI_Model
         $this->db->from('work');
         $this->db->join('user','user.uid = work.author');
         $this->db->limit(3);
-        $this->db->order_by("createdate", "desc");
+        $this->db->order_by("workid", "desc");
         $query = $this->db->get();
         return $query->result_array();
     }
