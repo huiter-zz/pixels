@@ -1774,14 +1774,14 @@
 				
 				$("#workpush").click(function(e){
  					var oCanvas = document.getElementById("voxelCanvas");
- 					var strDataURI = oCanvas.toDataURL(); 
+ 					var strDataURI = oCanvas.toDataURL('image/png'); 
  					$('#picture').attr("src",strDataURI);
         		});
 				
 				$("#workpost").click(function(e){
 					var oCanvas = document.getElementById("voxelCanvas");
-		 			var strDataURI = oCanvas.toDataURL('image/jpeg'); 
-		 			strDataURI = strDataURI.replace('image/jpeg;base64,','')
+		 			var strDataURI = oCanvas.toDataURL('image/png'); 
+		 			strDataURI = strDataURI.replace('data:image/png;base64,','')
 		 			var tag1 = $('#tag1').attr('value');
 		 			var tag2 = $('#tag2').attr('value');
 		 			var tag3 = $('#tag3').attr('value');

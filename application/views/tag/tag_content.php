@@ -54,7 +54,7 @@
                                 <hr class="taghr">
                                  
                                 <div style="height:50px;border:1px black soild;">
-                                <p><a target="_blank" href="<?php echo "/book/".$value['authorid'];?>" ><?php echo $value['authorname'] ?></a>于<?php echo $value['createdate'] ?>绘制此作品</p>
+                                <p><a target="_blank" href="<?php echo "/book/".$value['authorid'];?>" ><?php echo $value['authorname'] ?></a>于<?php echo date("Y-m-d",strtotime($value['createdate'])); ?>绘制此作品</p>
                                 </div>
                                 <div style="height:30px;">
                                 <a class="btn btn-danger pull-left" onclick="likepost(<?php echo $value['workid'] ?>)">喜欢</a>

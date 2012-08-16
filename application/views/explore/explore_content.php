@@ -44,7 +44,7 @@
       <div class="accordion-group">
         <div class="accordion-heading">
           <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse<?php echo $key;?>">
-            <a href="/book/<?php echo $value['authorid']?>"><?php echo $value['authorname']?></a>于<?php echo $value['createdate']?>创造了此作品.
+            <a href="/book/<?php echo $value['authorid']?>"><?php echo $value['authorname']?></a>于<?php echo date("Y-m-d",strtotime($value['createdate']));?>创造了此作品.
           </span>
         </div>
         <div id="collapse<?php echo $key;?>" class="accordion-body collapse" style="height: 0px; ">

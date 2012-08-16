@@ -86,7 +86,7 @@ class V1 extends REST_Controller
         $data['createdate'] = date('Y-m-d H:i:s');
         $data['kind'] = 0;
         $imgname = time().rand(0,9);
-        $data['img'] = "http://storage.aliyun.com/pixels/work/".$imgname.'.jpg';
+        $data['img'] = "http://storage.aliyun.com/pixels/work/".$imgname.'.png';
 
         $workid=$this->work_model->insert_entry($data);
         foreach ($tag as $key => $value) 
@@ -120,7 +120,7 @@ class V1 extends REST_Controller
         $oss_sdk_service->set_debug_mode(FALSE);
         $bucket = 'pixels';
 
-        $object = 'work/'.$imgname.'.jpg'; 
+        $object = 'work/'.$imgname.'.png'; 
         $content =base64_decode($content); 
         $upload_file_options = array(
             'content' => $content,
