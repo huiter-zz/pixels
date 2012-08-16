@@ -83,10 +83,10 @@ class V1 extends REST_Controller
         $data['likesnum'] = 0;
         $cubejsonname = time().rand(0,9);
         $data['cubejson'] =  "http://storage.aliyun.com/pixels/work/".$cubejsonname.'.txt';
-        $data['createdate'] = date("Y-m-d");
+        $data['createdate'] = date('Y-m-d H:i:s');
         $data['kind'] = 0;
         $imgname = time().rand(0,9);
-        $data['img'] = "http://storage.aliyun.com/pixels/work/".$imgname.'.png';
+        $data['img'] = "http://storage.aliyun.com/pixels/work/".$imgname.'.jpg';
 
         $workid=$this->work_model->insert_entry($data);
         foreach ($tag as $key => $value) 
@@ -98,7 +98,7 @@ class V1 extends REST_Controller
                 if(empty($tagentry))
                 {
                     $tag_data['tagname']=$value;
-                    $tag_data['createdate'] = date("Y-m-d");
+                    $tag_data['createdate'] =  date('Y-m-d H:i:s');
                     $tag_data['bestauthor'] = 10000;
                     $tag_data['likesnum'] =0;
                     $tag_data['worksnum'] = 1;
@@ -120,7 +120,7 @@ class V1 extends REST_Controller
         $oss_sdk_service->set_debug_mode(FALSE);
         $bucket = 'pixels';
 
-        $object = 'work/'.$imgname.'.png'; 
+        $object = 'work/'.$imgname.'.jpg'; 
         $content =base64_decode($content); 
         $upload_file_options = array(
             'content' => $content,
