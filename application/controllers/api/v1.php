@@ -117,21 +117,20 @@ class V1 extends REST_Controller
         }
 
         $oss_sdk_service = new ALIOSS();
-        $oss_sdk_service->set_debug_mode(FALSE);
+        $oss_sdk_service->set_debug_mode(TRUE);
         $bucket = 'pixels';
 
 
         $object = 'cubejson/'.$cubejsonname.'.txt'; 
         $content = $this->input->post('cubejson');
         $upload_file_options = array(
-            'content' => $content,
-            'length' => strlen($content),
+           'content' => $content,
+           'length' => strlen($content),
             ALIOSS::OSS_HEADERS => array(
                 'Expires' => '2014-10-01 08:00:00',
             ),
         );
         $response = $oss_sdk_service ->upload_file_by_content($bucket,$object,$upload_file_options);
-        
         
 
         $object = 'work/'.$imgname.'.png'; 
@@ -145,8 +144,7 @@ class V1 extends REST_Controller
         );
         $response = $oss_sdk_service ->upload_file_by_content($bucket,$object,$upload_file_options);
 
-
-        $this->response(array('message' =>'发布成功' ),200);    
+        $this->response(array('message' => '发布成功' ),200);    
     }
     
   

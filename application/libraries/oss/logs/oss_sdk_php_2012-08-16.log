@@ -1,0 +1,25 @@
+2012-08-16 22:23:51 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://storage.aliyun.com/pixels/cubejson/13451270296.txt
+STRING TO SIGN:----------------------------------------------
+PUT
+11FxOYiYfpMxmANj4kGJzg==
+text/plain
+Thu, 16 Aug 2012 14:23:49 GMT
+/pixels/cubejson/13451270296.txt
+REQUEST HEADERS:----------------------------------------------
+a:7:{s:14:"Content-Length";s:1:"2";s:11:"Content-Md5";s:24:"11FxOYiYfpMxmANj4kGJzg==";s:12:"Content-Type";s:10:"text/plain";s:4:"Date";s:29:"Thu, 16 Aug 2012 14:23:49 GMT";s:7:"Expires";s:19:"2014-10-01 08:00:00";s:4:"Host";s:18:"storage.aliyun.com";s:13:"Authorization";s:57:"OSS cti33alfjryqqg770wegrjlg:GlUmJEMM3rb5+c+JddaMoCK14wU=";}
+RESPONSE HEADERS:----------------------------------------------
+a:11:{s:4:"date";s:29:"Thu, 16 Aug 2012 14:20:00 GMT";s:10:"connection";s:5:"close";s:14:"content-length";s:1:"0";s:4:"etag";s:34:""D751713988987E9331980363E24189CE"";s:6:"server";s:9:"AliyunOSS";s:16:"x-oss-request-id";s:24:"502D0190D42351610B1CA49C";s:5:"_info";a:22:{s:3:"url";s:57:"http://storage.aliyun.com/pixels/cubejson/13451270296.txt";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:199;s:12:"request_size";i:446;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:1.7885709999999999109121517903986386954784393310546875;s:15:"namelookup_time";d:0.84031299999999997663024942085030488669872283935546875;s:12:"connect_time";d:1.2961890000000000355839802068658173084259033203125;s:16:"pretransfer_time";d:1.2962029999999999940740735837607644498348236083984375;s:11:"size_upload";d:2;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:1;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:0;s:18:"starttransfer_time";d:1.788510000000000044195758164278231561183929443359375;s:13:"redirect_time";d:0;s:8:"certinfo";a:0:{}s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:57:"http://storage.aliyun.com/pixels/cubejson/13451270296.txt";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:102:"PUT
+11FxOYiYfpMxmANj4kGJzg==
+text/plain
+Thu, 16 Aug 2012 14:23:49 GMT
+/pixels/cubejson/13451270296.txt";s:20:"x-oss-requestheaders";a:7:{s:14:"Content-Length";s:1:"2";s:11:"Content-Md5";s:24:"11FxOYiYfpMxmANj4kGJzg==";s:12:"Content-Type";s:10:"text/plain";s:4:"Date";s:29:"Thu, 16 Aug 2012 14:23:49 GMT";s:7:"Expires";s:19:"2014-10-01 08:00:00";s:4:"Host";s:18:"storage.aliyun.com";s:13:"Authorization";s:57:"OSS cti33alfjryqqg770wegrjlg:GlUmJEMM3rb5+c+JddaMoCK14wU=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:11:{s:4:"date";s:29:"Thu, 16 Aug 2012 14:20:00 GMT";s:10:"connection";s:5:"close";s:14:"content-length";s:1:"0";s:4:"etag";s:34:""D751713988987E9331980363E24189CE"";s:6:"server";s:9:"AliyunOSS";s:16:"x-oss-request-id";s:24:"502D0190D42351610B1CA49C";s:5:"_info";a:22:{s:3:"url";s:57:"http://storage.aliyun.com/pixels/cubejson/13451270296.txt";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:199;s:12:"request_size";i:446;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:1.7885709999999999109121517903986386954784393310546875;s:15:"namelookup_time";d:0.84031299999999997663024942085030488669872283935546875;s:12:"connect_time";d:1.2961890000000000355839802068658173084259033203125;s:16:"pretransfer_time";d:1.2962029999999999940740735837607644498348236083984375;s:11:"size_upload";d:2;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:1;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:0;s:18:"starttransfer_time";d:1.788510000000000044195758164278231561183929443359375;s:13:"redirect_time";d:0;s:8:"certinfo";a:0:{}s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:57:"http://storage.aliyun.com/pixels/cubejson/13451270296.txt";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:102:"PUT
+11FxOYiYfpMxmANj4kGJzg==
+text/plain
+Thu, 16 Aug 2012 14:23:49 GMT
+/pixels/cubejson/13451270296.txt";s:20:"x-oss-requestheaders";a:7:{s:14:"Content-Length";s:1:"2";s:11:"Content-Md5";s:24:"11FxOYiYfpMxmANj4kGJzg==";s:12:"Content-Type";s:10:"text/plain";s:4:"Date";s:29:"Thu, 16 Aug 2012 14:23:49 GMT";s:7:"Expires";s:19:"2014-10-01 08:00:00";s:4:"Host";s:18:"storage.aliyun.com";s:13:"Authorization";s:57:"OSS cti33alfjryqqg770wegrjlg:GlUmJEMM3rb5+c+JddaMoCK14wU=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2012-08-16 22:23:51:---LOG END---------------------------------------------------------------------------
+
