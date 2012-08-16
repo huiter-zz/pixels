@@ -132,6 +132,10 @@ class V1 extends REST_Controller
         );
         $response = $oss_sdk_service ->upload_file_by_content($bucket,$object,$upload_file_options);
         
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6ee6d8723c4ebea85e12d4f8418170f529d45a4c
 
         $object = 'work/'.$imgname.'.png'; 
         $content =base64_decode($content); 
