@@ -8,7 +8,7 @@ define('OSS_ACCESS_KEY', 'XdpKms3X/z+bmQGk+1ntBSD64JE=');
 
 
 //是否记录日志
-define('ALI_LOG', FALSE);
+define('ALI_LOG', TRUE);
 
 //自定义日志路径，如果没有设置，则使用系统默认路径，在./logs/
 //define('ALI_LOG_PATH','');

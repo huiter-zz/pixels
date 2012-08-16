@@ -117,7 +117,7 @@ class V1 extends REST_Controller
         }
 
         $oss_sdk_service = new ALIOSS();
-        $oss_sdk_service->set_debug_mode(FALSE);
+        $oss_sdk_service->set_debug_mode(TRUE);
         $bucket = 'pixels';
 
 
@@ -132,7 +132,7 @@ class V1 extends REST_Controller
         );
         $response = $oss_sdk_service ->upload_file_by_content($bucket,$object,$upload_file_options);
         
-        
+
 
         $object = 'work/'.$imgname.'.png'; 
         $content =base64_decode($content); 
