@@ -93,12 +93,12 @@
 										<span class="QuickColor" title="ff007f" style="background-color: #ff007f;">&nbsp;</span>
 										<span class="QuickColor" title="bf005f" style="background-color: #bf005f;">&nbsp;</span>
 										<span class="QuickColor" title="7f003f" style="background-color: #7f003f;">&nbsp;</span>
-										<span class="QuickColor" title="透明色" style="background-color: transparent; background-image: url(../assets/img/button/NoColor.png);">&nbsp;</span>
+										<span class="QuickColor" title="透明色" style="background-color: transparent; background-image: url(http://storage.aliyun.com/pixels/assets/img/button/NoColor.png);">&nbsp;</span>
 									</div>			
 							</td>
 							<td colspan="2">
 								<div class="cx-colorad-preview">new
-									<div style="background-image: url(../assets/img/button/preview-opacity.png); ">
+									<div style="background-image: url(http://storage.aliyun.com/pixels/assets/img/button/preview-opacity.png); ">
 										<span class="Active" title="新颜色-点击确定按钮使用" style="background-color: rgb(255, 86, 86); visibility: visible; ">&nbsp;</span>
 										<span class="Current" title="单击返回上一颜色" style="background-color: rgb(255, 86, 86); ">&nbsp;</span>
 									</div>current
