@@ -14,7 +14,6 @@
 	<script type="text/javascript">
 	$(document).ready(function() {
 
-
 	});
 
 	</script>
@@ -655,8 +654,7 @@
 						directionalLight2.position.z = - 0.75;
 						directionalLight2.position.normalize();
 						scene.add( directionalLight2 );
-						
-						
+			
 						/*
 						 * 像素底部平面
 						 */
@@ -684,6 +682,7 @@
 						//renderer=new THREE.CanvasRenderer({canvas:this.el});
 						
 						renderer.setSize( config.canvasWidth,config.canvasHeight );
+						renderer.setClearColorHex(0xFFFFFF, 1.0);
 						
 						this.models.renderer=renderer;
 
