@@ -13,9 +13,9 @@ class Workspace extends Pixel_Controller
 	public function index()
 	{
 		
-		$this->template['css'] = $this->load->view('workspace/workspace_css',$this->template,TRUE);
-		$this->template['content'] = $this->load->view('workspace/workspace_content',$this->template,TRUE);
-		$this->template['js'] = $this->load->view('workspace/workspace_js',$this->template,TRUE);
+		$this->template['css'] = $this->load->view('workspace/workspace_canvas_css',$this->template,TRUE);
+		$this->template['content'] = $this->load->view('workspace/workspace_canvas_content',$this->template,TRUE);
+		$this->template['js'] = $this->load->view('workspace/workspace_canvas_js',$this->template,TRUE);
 		
 		$this->load->view('template_view',$this->template);
 	}
