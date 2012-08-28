@@ -43,8 +43,29 @@ class V1 extends REST_Controller
         }
 
     }
-    //作品提交
 
+    //获取作品全部信息
+    function work_get()
+    {
+        if(!$this->get('workid'))
+        {
+            $this->response(array('message' => 'no workid'),400);
+        }
+        $workid =$this->get('workid');
+        $this->load->model('work_model','',TRUE);
+        $work = $this->work_model->get_entry_byworkid($workid);
+
+        if (empty($work)) 
+        {
+            $this->response(array('message' => 'No This work!'), 400);
+        }
+        else
+        {
+            //$out['name'] = $user['name'];
+            $this->response($work,200);
+        }
+    }
+    //作品提交
     function work_post()
     {
        

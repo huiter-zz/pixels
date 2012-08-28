@@ -672,7 +672,7 @@
 						/*
 						 * 建立坐标轴
 						 */
-						this.setUpAxis();
+						//this.setUpAxis();
 						
 						/*
 						 * 初始化渲染器

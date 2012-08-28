@@ -58,7 +58,7 @@
                                 </div>
                                 <div style="height:30px;">
                                 <a class="btn btn-danger pull-left" onclick="likepost(<?php echo $value['workid'] ?>)">喜欢</a>
-                                <a class="btn pull-right">再创作</a>
+                                <a class="btn pull-right" href="/workspace?id=<?php echo $value['workid'] ?>">再创作</a>
                                 </div>
                                 </div>
                         </div>
