@@ -64,7 +64,8 @@
                         </div>
                         <div id="modal<?php echo $value['workid']?>" class="modal hide fade">
                             <div class="modal-body">
-                                <img src="<?php echo $value['img'] ?>" alt=""></a>
+                                <a href="/work/<?php echo $value['workid'];?>"><img src="<?php echo $value['img'] ?>" alt=""></a>
+                                <a class="btn" href="/work/<?php echo $value['workid'];?>">进入详情页查看更多内容</a>
                             </div>
                         </div>
                     </li>
