@@ -124,7 +124,7 @@
 			</div>
 			
 			<!--视角设定部分图标-->
-			<div style="position:absolute; left:900px; top:400px;display:none;">
+			<div style="position:absolute; left:40px; top:400px;display:none;">
 				<div class="cx-dialog cx-cameraoptions" style="width:107px; height=107px;">
 					<div class="options">
 						<div id="Left" class="cx-camoption cx-icon-camleft camleft" title="向左"></div>
