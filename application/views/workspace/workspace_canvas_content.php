@@ -5,14 +5,11 @@
   <li class="active"><span class="label">工作间</span></li>
 </ul>
 <!--画布-->
-	<div style="height:540px;position:relative;">
-		<div id="workplace" style="margin:0 auto; width:838px;">
+	<div style="height:600px;position:relative;">
+		<div id="workplace" style="margin:0 auto; width:840px;">
 			<canvas id="worldbackground" width="840 px" height="540 px" style="background:transparent;z-index:1;margin:0 auto;position:absolute;top:0px;"></canvas>
 			<canvas id="world" width="840 px" height="540 px" style="z-index:999999999;"></canvas>
 		</div>
-
-	
-
 			<!--工具栏图标-->
 			<div  id="tool-window" style="position:absolute; left:8.5px; top:2px;">
 				<div class="cx-dialog cx-toolbox">
@@ -170,7 +167,7 @@
               <h3>发布作品</h3>
             </div>
             <div class="modal-body">
-            	<img id="picture" width=400 style="display:block;margin:0 auto;">
+            	<img id="picture" width=420 height=270 style="display:block;margin:0 auto;border:1px solid #BBBBBB;">
             	<hr>
 			       <form class="form-horizontal">
 			        <fieldset>

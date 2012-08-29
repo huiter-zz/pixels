@@ -19,7 +19,7 @@
                 <?php foreach ($bestwork_info as $key => $value):?>
                     <li class="span3">
                         <div class="thumbnail">
-                            <a data-toggle="modal" href="#modal<?php echo $value['workid'] ?>"><img  src="<?php echo $value['img'] ?>" alt=""></a>
+                            <a data-toggle="modal" href="#modal<?php echo $value['workid'] ?>"><img  style="border:1px solid #bbbbbb;margin:0 auto 0 -1px;"src="<?php echo $value['img'] ?>" alt=""></a>
                             <div class="caption">
                                 <i class="icon-tag"></i>
                                 <?php $tags =explode(";",$value['tags']);?>
@@ -44,7 +44,7 @@
                         <div id="modal<?php echo $value['workid']?>" class="modal hide fade">
                             <div class="modal-body">
                                 <a href="/work/<?php echo $value['workid'];?>"><img src="<?php echo $value['img'] ?>" alt=""></a>
-                                <a class="btn" href="/work/<?php echo $value['workid'];?>">进入详情页查看更多内容</a>
+                                <a class="btn span6" href="/work/<?php echo $value['workid'];?>">进入详情页查看更多内容</a>
                             </div>
                         </div>
                     </li>
