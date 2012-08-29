@@ -4,6 +4,17 @@
   </li>
   <li class="active"><span class="label">工作间</span></li>
 </ul>
+
+<?php if($this->session->userdata('userdata')):?>
+	<div class="row" style="margin: 0 auto 10px 15px;">
+		<div class="offset2 thumbnail span7" ><span class="label label-important">说明</span>拖动工具栏到合适的位置，选择合适的格子密度，然后开始创作吧。</div>
+		<a data-toggle="modal" href="#worksubmit" class="btn btn-danger" style="margin:-2px 0 0 10px;" id="workpush">发布作品</a>
+	</div>	
+<?php else:?>
+	<div class="row" style="margin: 0 auto 10px 15px;">
+		<div class="offset2 thumbnail span7" ><span class="label label-important">注意!</span>你还没有登录，作品是无法保存的。Pixels支持新浪微博、人人、QQ等多种账号登录。</div>
+	</div>	
+<?php endif;?>
 <!--画布-->
 	<div style="height:600px;position:relative;">
 		<div id="workplace" style="margin:0 auto; width:840px;">
@@ -11,7 +22,7 @@
 			<canvas id="world" width="840 px" height="540 px" style="z-index:999999999;"></canvas>
 		</div>
 			<!--工具栏图标-->
-			<div  id="tool-window" style="position:absolute; left:8.5px; top:2px;">
+			<div  id="tool-window" style="position:absolute; left:5px; top:100px;">
 				<div class="cx-dialog cx-toolbox">
 					<div class="cx-toolbar">
 						<div id="singleCube" class="cx-button cx-icon-addcube" title="添加方块"></div>
@@ -24,7 +35,7 @@
 			</div>
 			
 			<!-- 取色部分图标 -->
-			<div  id="color-window" style="position:absolute; left: 465.5px; top: 540px; ">
+			<div  id="color-window" style="position:absolute; left: 260px; top: 480px; ">
 				<div class="cx-dialog cx-colorpicker">
 						<div class="cx-colorpalette">				
 							<div id="3D" class="cx-button cx-icon-colorpicker colorpick" style="display:none;"title="取色管"></div>
@@ -184,24 +195,22 @@
       			</form>
             </div>
             <div class="modal-footer">
-              <a href="#" class="btn btn-primary"  id="workpost">提交</a>
+              <a href="#" class="btn btn-danger"  id="workpost">提交</a>
             </div>
           </div>
       <?php endif;?>
-			<div>
-				<?php if($this->session->userdata('userdata')):?><a data-toggle="modal" href="#worksubmit" class="btn " id="workpush">发布作品</a><?php endif;?>
-				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn " id="num0">84×54</a>
-				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn" id="num1">56×36</a>
-				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn" id="num2">42×27</a>
-				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn" id="num3">28×18</a>				
+			<div class="pull-right">
+				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn btn-mini" id="num0">84×54</a>
+				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn btn-mini" id="num1">56×36</a>
+				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn btn-mini" id="num2">42×27</a>
+				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn btn-mini" id="num3">28×18</a>				
 			</div>
 			
 			<div id="changenumber" class="modal hide fade">
 				<div class="modal-header">
 				  <button type="button" class="close" data-dismiss="modal">×</button>
 				  <div>
-					<span class="label label-warning">友情提示</span>
-					<h3>真的要切换格子的数目？</h3>
+					<h3><span class="label label-wang">友情提示</span>真的要切换格子的数目？</h3>
 			      </div>
 			    </div>
 				<div class="modal-body">

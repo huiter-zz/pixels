@@ -22,12 +22,12 @@ class Pixel_Controller extends CI_Controller
         $this->template['class'] = $this->router->fetch_class();
 
 
-
+        /*
         if ( ! $this->session->userdata('userdata'))
 		{          	
 			Message::set('未登录无法对作品保存哦！','error');	
 		}
-
+		*/
 		/*3小时*/
 		/* $this->output->enable_profiler(TRUE); */
 		/*$this->output->cache(180);*/    

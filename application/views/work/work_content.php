@@ -2,10 +2,11 @@
   <li>
     像素の逆袭<span class="divider"><i class="icon-chevron-right"></i></span>
   </li>
-  <li class="active"><span class="label">作品廊</span></li>
+  <li class="active"><span class="label"><?php echo $work['workid'];?>号作品</span></li>
 </ul>
-<div class="control-group form-inline">
-    <span class="controls">
+<span id="cubejson" style="display:none;"><?php echo file_get_contents($work['cubejson']);?></span>
+<div class="row">
+    <div class="span1" style="marigin-left:20px;">
     <script type="text/javascript">
     var photos = [{src:"<?php echo $work['img'];?>", alt:"作品编号<?php echo $work['workid'];?>"}],
         re = [];
@@ -16,8 +17,8 @@
     var ec = encodeURIComponent, url = ec(window.location.href), ti = ec(document.title);
     document.write('<a title="分享到点点" target="_blank" href="http://www.diandian.com/share?lo='+url+'&ti='+ti+'&type=image&'+re.join("&")+'"><img src="http://s.libdd.com/img/share/share-s-1.png" alt="分享到点点"/></a>');
 	</script>
-	</span>
-	<span class="controls">
+	</div>
+	<div class="span1" style="margin-left:-20px;">
 		<script type="text/javascript" charset="utf-8">
 		(function(){
 		  var _w = 32 , _h = 32;
@@ -39,8 +40,8 @@
 		  document.write('<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://hits.sinajs.cn/A1/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'"></iframe>')
 		})()
 		</script>
-	</span>
-	<span class="controls">
+	</div>
+	<div class="span1" style="margin-left:-20px;">
 		<script type="text/javascript">
 		(function(){
 		var p = {
@@ -63,8 +64,8 @@
 		})();
 		</script>
 		<script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
-	</span>
-	<span class="controls">
+	</div>
+	<div class="span1" style="margin-left:-20px;">
 		<script type="text/javascript" src="http://widget.renren.com/js/rrshare.js"></script>
 			<a name="xn_share" onclick="shareClick()" type="icon_large" href="javascript:;"></a>
 			<script type="text/javascript">
@@ -79,7 +80,7 @@
 					rrShareOnclick(rrShareParam);
 				}
 		</script>
-	</span>
+	</div>
 </div>
 
 
