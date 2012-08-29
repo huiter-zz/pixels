@@ -101,6 +101,40 @@
 						bgcontext.stroke();
 					}
 				}
+
+				API.makebackground =function (){
+					var background = document.getElementById('world');
+					var bgcontext=background.getContext('2d');
+					var cw=cubewidth[cwlevel];
+					
+					bgcontext.strokeStyle = "#DDDDDD";
+					bgcontext.lineWidth = 1;
+					
+					var widthlen = Math.ceil(worldwidth/cw);
+					var heightlen = Math.ceil(worldheight/cw);
+					var tempcount=0;
+					
+					bgcontext.beginPath();
+					bgcontext.moveTo(0,0);
+					bgcontext.lineTo(0,worldheight);
+					bgcontext.moveTo(worldwidth,0);
+					bgcontext.lineTo(0,0);
+					bgcontext.stroke();
+					
+					for(tempcount=1;tempcount<=widthlen;tempcount++){
+						bgcontext.beginPath();
+						bgcontext.moveTo(tempcount*cw-0.5,0);//减0.5是为了去掉canvas直线半渲染的效果
+						bgcontext.lineTo(tempcount*cw-0.5,worldheight);
+						bgcontext.stroke();
+					}
+					for(tempcount=1;tempcount<=heightlen;tempcount++){
+						bgcontext.beginPath();
+						bgcontext.moveTo(0,tempcount*cw-0.5);
+						bgcontext.lineTo(worldwidth,tempcount*cw-0.5);
+						bgcontext.stroke();
+					}
+					//replay(1);
+				}
 				
 				function resetworld(){
 					action.length=0;
@@ -144,15 +178,15 @@
 								    if(status == 'add')
 									{
 										context.fillStyle = pickedColor;
-								       	context.fillRect(x,y,cubewidth[cwlevel]-1,cubewidth[cwlevel]-1);
-								      	action.push({a:'a',c:pickedColor,x:x,y:y,w:cubewidth[cwlevel]-1});
+								       	context.fillRect(x,y,cubewidth[cwlevel],cubewidth[cwlevel]);
+								      	action.push({a:'a',c:pickedColor,x:x,y:y,w:cubewidth[cwlevel]});
 										reAction.length=0;
 										$("#redo").css("background-position","-33px -102px");
 							        }
 							        else
 							        {
-								       	context.clearRect(x,y,cubewidth[cwlevel]-1,cubewidth[cwlevel]-1);
-								       	action.push({a:'d',c:pickedColor,x:x,y:y,w:cubewidth[cwlevel]-1});
+								       	context.clearRect(x,y,cubewidth[cwlevel],cubewidth[cwlevel]);
+								       	action.push({a:'d',c:pickedColor,x:x,y:y,w:cubewidth[cwlevel]});
 										reAction.length=0;
 										$("#redo").css("background-position","-33px -102px");
 							        }
@@ -444,6 +478,8 @@
 		$(document).ready(
 			function(){
 				$("#workpush").click(function(e){
+					//Pixels2D.makebackground();
+
  					var oCanvas = document.getElementById("world");
  					var strDataURI = oCanvas.toDataURL('image/png'); 
  					$('#picture').attr("src",strDataURI);
