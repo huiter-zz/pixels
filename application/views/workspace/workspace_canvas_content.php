@@ -167,7 +167,7 @@
               <h3>发布作品</h3>
             </div>
             <div class="modal-body">
-            	<img id="picture" width=420 height=270 style="display:block;margin:0 auto;border:1px solid #BBBBBB;">
+            	<img id="picture" width=420 height=270 style="display:block;margin:0 auto;border:1px solid #BBBBBB;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;">
             	<hr>
 			       <form class="form-horizontal">
 			        <fieldset>
