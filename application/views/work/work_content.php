@@ -64,6 +64,22 @@
 		</script>
 		<script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201" charset="utf-8"></script>
 	</span>
+	<span class="controls">
+		<script type="text/javascript" src="http://widget.renren.com/js/rrshare.js"></script>
+			<a name="xn_share" onclick="shareClick()" type="icon_large" href="javascript:;"></a>
+			<script type="text/javascript">
+				function shareClick() {
+					var rrShareParam = {
+						resourceUrl : '',	//分享的资源Url
+						srcUrl : '',	//分享的资源来源Url,默认为header中的Referer,如果分享失败可以调整此值为resourceUrl试试
+						pic : '<?php echo $work['img'];?>',		//分享的主题图片Url
+						title : '作品编号<?php echo $work['workid'];?>',		//分享的标题
+						description : ''	//分享的详细描述
+					};
+					rrShareOnclick(rrShareParam);
+				}
+		</script>
+	</span>
 </div>
 
 
