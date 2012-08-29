@@ -19,7 +19,7 @@
                 <?php foreach ($bestwork_info as $key => $value):?>
                     <li class="span3">
                         <div class="thumbnail">
-                            <a data-toggle="modal" href="#modal<?php echo $value['workid'] ?>"><img  style="border:1px solid #bbbbbb;margin:0 auto 0 -1px;"src="<?php echo $value['img'] ?>" alt=""></a>
+                            <a data-toggle="modal" href="#modal<?php echo $value['workid'] ?>"><img class="tagimg" src="<?php echo $value['img'] ?>" alt=""></a>
                             <div class="caption">
                                 <i class="icon-tag"></i>
                                 <?php $tags =explode(";",$value['tags']);?>
