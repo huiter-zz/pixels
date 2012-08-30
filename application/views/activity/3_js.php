@@ -36,14 +36,6 @@
 				count = 0;
 				
 				var pixelOptions = [{
-					shape : 'diamond',
-					resolution : 48,
-					size : 50
-				}, {
-					shape : 'diamond',
-					resolution : 48,
-					offset : 24
-				}, {
 					shape : 'circle',
 					resolution : 8,
 					size : 6
