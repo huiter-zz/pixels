@@ -103,7 +103,7 @@ class V1 extends REST_Controller
         $data['author'] = $userdata['uid'];
         $data['likesnum'] = 0;
         $cubejsonname = time().rand(0,9);
-        $data['cubejson'] =  "http://storage.aliyun.com/pixels/work/".$cubejsonname.'.txt';
+        $data['cubejson'] =  "http://storage.aliyun.com/pixels/cubejson/".$cubejsonname.'.txt';
         $data['createdate'] = date('Y-m-d H:i:s');
         $data['kind'] = 0;
         $imgname = time().rand(0,9);
