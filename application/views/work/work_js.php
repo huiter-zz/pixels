@@ -127,48 +127,11 @@
 			Pixels2D.Initialize();
 		</script>
 		<script type="text/javascript">
-			 
-			$("#colorPicker").ColorPicker({
-                
-                color:"#ffffff",
-                
-                onShow:function(colpkr){
-                    
-                    $(colpkr).fadeIn(500);                  
-                    return false;
-                },
-                
-                onHide:function(colpkr){                   
-                    $(colpkr).fadeOut(500);
-                    return false;
-                },
-                
-                onChange:function(hsb, hex, rgb){
-					Pixels2D.SetBackgroundColor("#"+hex);
-					Pixels2D.ChangeBackground();	
-                },
-                
-                onSubmit:function(hsb, hex, rgb, el){                       					
-                    $(el).ColorPickerHide()
-					Pixels2D.SetBackgroundColor("#"+hex);
-					Pixels2D.ChangeBackground();
-                }
-            });
 				
 			$("#play").click(function(){
 				Pixels2D.Play();		
 			});
 			$("#stop").click(function(){					
 				Pixels2D.Stop();
-			});
-			$("#speedslider").slider({
-				orientation: "vertical",
-				range: "min",
-				min: 0,
-				max: 800,
-				value: 0,
-				change: function(event, ui) { 
-					Pixels2D.SetPlayspeed(800-ui.value);
-				}
 			});
 		</script>

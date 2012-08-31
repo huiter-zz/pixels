@@ -7,11 +7,13 @@
 <span id="cubejson" style="display:none;"><?php echo file_get_contents($work['cubejson']);?></span>
 
 <div class="row">
-	<div id="workplace" style="margin:0 auto;">
+	<div id="workplace" style="margin:0 auto;width:840px;">
 		<canvas id="world" width="840 px" height="540 px" style="z-index:999;"></canvas>
 	</div>
-	<div class="btn cx-changebtn " id="play">播放</div>
-	<div class="btn cx-changebtn " id="stop">停止</div>
+</div>
+<div class="row">
+	<div class="btn cx-changebtn span1 offset4" id="play">播放</div>
+	<div class="btn cx-changebtn span1 offset1" id="stop">停止</div>
 </div>
 <div class="row">
     <div class="span1" style="marigin-left:20px;">
