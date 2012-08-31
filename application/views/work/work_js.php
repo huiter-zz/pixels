@@ -1,4 +1,7 @@
-
+<script src="http://storage.aliyun.com/pixels/assets/colorpicker/bootstrap-colorpicker.js"></script>
+<script src="http://storage.aliyun.com/pixels/assets/js/close-pixelate.js"></script>
+<script src="http://storage.aliyun.com/pixels/assets/js/canvas2image.js"></script>
+<script src="http://storage.aliyun.com/pixels/assets/js/base64.js"></script>
 <!--上面是colorpicker的资源文件-->
 		<script type="text/javascript">
 			var Pixels2D = (function() {
@@ -42,7 +45,7 @@
 				API.Stop = function(){
 					clearTimeCount();
 					clearworld();
-					paintworld();
+					paintworld(backgroundcolor);
 					repaint();
 				}
 				
@@ -127,11 +130,20 @@
 			Pixels2D.Initialize();
 		</script>
 		<script type="text/javascript">
-				
 			$("#play").click(function(){
 				Pixels2D.Play();		
 			});
 			$("#stop").click(function(){					
 				Pixels2D.Stop();
+			});
+
+			$('#cp').colorpicker().on('changeColor', function(ev){
+				  	Pixels2D.SetBackgroundColor(ev.color.toHex());
+					Pixels2D.ChangeBackground(); 
+				});
+
+			$("#save").click(function(){					
+				var oCanvas = document.getElementById("world");
+				var work = Canvas2Image.saveAsPNG(oCanvas);  
 			});
 		</script>
