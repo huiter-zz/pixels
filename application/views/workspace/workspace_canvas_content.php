@@ -4,6 +4,9 @@
   </li>
   <li class="active"><span class="label">工作间</span></li>
 </ul>
+<?php if(!empty($work)):?>
+<span id="cubejson" style="display:none;"><?php echo file_get_contents($work['cubejson']);?></span>
+<?php endif;?>
 
 <?php if($this->session->userdata('userdata')):?>
 	<div class="row" style="margin: 0 auto 10px 15px;">
@@ -12,7 +15,7 @@
 	</div>	
 <?php else:?>
 	<div class="row" style="margin: 0 auto 10px 15px;">
-		<div class="offset2 thumbnail span7" ><span class="label label-important">注意!</span>你还没有登录，作品是无法保存的。Pixels支持新浪微博、人人、QQ等多种账号登录。</div>
+		<div class="offset2 thumbnail span7" ><span class="label label-important">注意!</span>你还没有登录，作品是无法保存的。Pixels支持新浪微博、人人、QQ多种账号登录。</div>
 	</div>	
 <?php endif;?>
 <!--画布-->

@@ -1,0 +1,1 @@
+<link href="http://storage.aliyun.com/pixels/assets/colorpicker/colorpicker.css" rel="stylesheet">

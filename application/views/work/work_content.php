@@ -6,15 +6,23 @@
 </ul>
 <span id="cubejson" style="display:none;"><?php echo file_get_contents($work['cubejson']);?></span>
 
-<div class="row">
+<div>
 	<div id="workplace" style="margin:0 auto;width:840px;">
 		<canvas id="world" width="840 px" height="540 px" style="z-index:999;"></canvas>
 	</div>
 </div>
-<div class="row">
-	<div class="btn cx-changebtn span1 offset4" id="play">播放</div>
-	<div class="btn cx-changebtn span1 offset1" id="stop">停止</div>
+<div class="thumbnail">
+	<div class="btn btn-small offset4" id="play"><i class="icon-play"></i></div>
+	<div class="btn btn-small" id="stop"><i class="icon-stop"></i></div>
+	<div class="btn btn-small" id="save"><i class="icon-camera"></i></div>
+	<span id="cp" class="input-append color" data-color="#FFFFFF" data-color-format="hex">
+	  <span class="label label-inverse">背景色
+	  <span class="add-on"><i style="background-color: #FFFFFF"></i></span>
+	  </span>
+	</span>
+
 </div>
+<hr>
 <div class="row">
     <div class="span1" style="marigin-left:20px;">
     <script type="text/javascript">

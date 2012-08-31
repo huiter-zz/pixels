@@ -12,7 +12,13 @@ class Workspace extends Pixel_Controller
 
 	public function index()
 	{
-		
+		$workid = $this->input->get('id');
+		if($workid)
+		{
+			$this->curl->create(base_url("/api/v1/work/?workid=".$workid));
+			$work = json_decode($this->curl->execute(),TRUE);
+			$this->template['work'] = $work; 
+		}
 		$this->template['css'] = $this->load->view('workspace/workspace_canvas_css',$this->template,TRUE);
 		$this->template['content'] = $this->load->view('workspace/workspace_canvas_content',$this->template,TRUE);
 		$this->template['js'] = $this->load->view('workspace/workspace_canvas_js',$this->template,TRUE);
