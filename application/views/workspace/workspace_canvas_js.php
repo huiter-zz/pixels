@@ -178,8 +178,8 @@
 								    if(status == 'add')
 									{
 										context.fillStyle = pickedColor;
-								       	context.fillRect(x,y,cubewidth[cwlevel],cubewidth[cwlevel]);
-								      	action.push({a:'a',c:pickedColor,x:x,y:y,w:cubewidth[cwlevel]});
+								       	context.fillRect(x,y,cubewidth[cwlevel]-1,cubewidth[cwlevel]-1);
+								      	action.push({a:'a',c:pickedColor,x:x,y:y,w:cubewidth[cwlevel]-1});
 										reAction.length=0;
 										$("#redo").css("background-position","-33px -102px");
 							        }

@@ -5,6 +5,14 @@
   <li class="active"><span class="label"><?php echo $work['workid'];?>号作品</span></li>
 </ul>
 <span id="cubejson" style="display:none;"><?php echo file_get_contents($work['cubejson']);?></span>
+
+<div class="row">
+	<div id="workplace" style="margin:0 auto;">
+		<canvas id="world" width="840 px" height="540 px" style="z-index:999;"></canvas>
+	</div>
+	<div class="btn cx-changebtn " id="play">播放</div>
+	<div class="btn cx-changebtn " id="stop">停止</div>
+</div>
 <div class="row">
     <div class="span1" style="marigin-left:20px;">
     <script type="text/javascript">
@@ -82,8 +90,4 @@
 		</script>
 	</div>
 </div>
-
-
-
-
 <script type='text/javascript' charset='utf-8' src='http://open.denglu.cc/connect/commentcode?appid=91577den0UrhiUt6FQ0Wa92DG85pc3&postid=<?php echo $work['workid'];?>'></script>
