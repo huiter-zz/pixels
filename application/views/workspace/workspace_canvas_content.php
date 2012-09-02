@@ -21,32 +21,60 @@
 <!--画布-->
 	<div style="height:600px;position:relative;">
 		<div id="workplace" style="margin:0 auto; width:840px;">
-			<canvas id="worldbackground" width="840 px" height="540 px" style="background:transparent;z-index:1;margin:0 auto;position:absolute;top:0px;"></canvas>
-			<canvas id="world" width="840 px" height="540 px" style="z-index:999999999;"></canvas>
+			<canvas id="worldbackground" width="840 px" height="560 px" style="background:transparent;z-index:1;margin:0 auto;position:absolute;top:0px;"></canvas>
+			<canvas id="world" width="840 px" height="560 px" style="z-index:1;"></canvas>
 		</div>
-					<!--工具栏图标-->
+<!--工具栏图标-->
 		<div  id="tool-window" style="position:absolute; left:5px; top:100px;">
 			<div class="cx-dialog cx-toolbox">
 				<div class="cx-toolbar">
-					<div id="singleCube" class="cx-button cx-icon-addcube" title="添加方块"></div>
+					<div id="singleCube" class="cx-button cx-icon-addcube focusaction" title="添加方块"></div>
 					<div id="clean" class="cx-button cx-icon-eraser" title="清除方块"></div>
 					<div id="undo" class="cx-button cx-icon-undo" title="撤销"></div>	
 					<div id="redo" class="cx-button cx-icon-redo" title="重做"></div>
-					<div id="dustbin" class="cx-button cx-icon-dustbin" style="background-position: -102px -34px;width: 34px;height: 34px; background-image: url('http://storage.aliyun.com/pixels/assets/img/button/iconset1_v4.png');background-repeat: no-repeat;" title="清除全部"></div>					
+					<div id="dustbin" data-toggle="modal" href="#clearall" class="cx-button cx-icon-dustbin" style="background-position: -102px -34px;width: 34px;height: 34px; background-image: url('http://storage.aliyun.com/pixels/assets/img/button/iconset1_v4.png');background-repeat: no-repeat;" title="清除全部"></div>					
 				    <div id="grid" class="cx-button cx-icon-grid" style="background-position: -34px 0;width: 34px;height: 34px; background-image: url('http://storage.aliyun.com/pixels/assets/img/button/iconset1_v4.png');background-repeat: no-repeat;" title="显示网格"></div>
 					<div id="save" class="cx-button cx-icon-save" style="background-position: 0 0;height: 34px;width: 34px; background-image: url('http://storage.aliyun.com/pixels/assets/img/button/iconset1_v4.png');background-repeat: no-repeat;" title="保存模型"></div>					
-				    <div id="open" class="cx-button cx-icon-open" style="display:none;background-position: -34px -136px;height: 34px;width: 34px; background-image: url('http://storage.aliyun.com/pixels/assets/img/button/iconset1_v4.png');background-repeat: no-repeat;" title="显示网格"></div>
+				    <div id="open" data-toggle="modal" href="#openconsole" class="cx-button cx-icon-open" style="background-position: -34px -136px;height: 34px;width: 34px; background-image: url('http://storage.aliyun.com/pixels/assets/img/button/iconset1_v4.png');background-repeat: no-repeat;" title="显示网格"></div>
 					</div>
 			</div>
 		</div>
-			
+			<div id="openconsole" class="modal hide fade">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal">×</button>
+				  <div>
+					<h3><span class="label label-important">加载模型</span></h3>
+			      </div>
+			    </div>
+				<div class="modal-body">
+				  <h4>输入模型文本</h4>
+				  <textarea id ="modeltext" rows="4" style = "width:520px;"></textarea>
+				</div>
+				<div class="modal-footer">
+				  <div class="btn btn-primary" data-dismiss="modal" id="openconfirmed" >确定</div>
+				</div>
+			</div>
+			<div id="clearall" class="modal hide fade">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal">×</button>
+				  <div>
+					<h3><span class="label label-warning">确定全部清空</span></h3>
+			      </div>
+			    </div>
+				<div class="modal-body">
+				  <h4>想好了么亲~当前操作不可逆的哦~</h4>
+				</div>
+				<div class="modal-footer">
+				  <div class="btn btn-primary" data-dismiss="modal" id="clearconfirmed">确定</div>
+				</div>
+			</div>
 			<!-- 取色部分图标 -->
 			<div  id="color-window" style="position:absolute; left: 260px; top: 480px; ">
 				<div class="cx-dialog cx-colorpicker">
 						<div class="cx-colorpalette">				
 							<div id="3D" class="cx-button cx-icon-colorpicker colorpick" style="display:none;"title="取色管"></div>
 							<div id="colorp" class="cx-icon-palette" title="调色板"></div>
-							<div id="ocolor0" class="ocolor" title="历史颜色" style="background-color: transparent "></div>
+							<div id="ocolor0" class="ocolor ocolorsel" title="DDDDDD" style="background-color: #DDDDDD "></div>
 							<div id="ocolor1" class="ocolor" title="历史颜色" style="background-color: transparent"></div>
 							<div id="ocolor2" class="ocolor" title="历史颜色" style="background-color: transparent"></div>
 							<div id="ocolor3" class="ocolor" title="历史颜色" style="background-color: transparent"></div>
@@ -58,7 +86,6 @@
 							<div id="ocolor9" class="ocolor" title="历史颜色" style="background-color: transparent"></div>
 							<div id="ocolor10" class="ocolor" title="历史颜色" style="background-color: transparent"></div>
 							<div id="ocolor11" class="ocolor" title="历史颜色" style="background-color: transparent"></div>
-
 						</div>
 			    </div>
 			</div>
@@ -177,7 +204,45 @@
 				</div>
 			</div>
 	
-		<?php if($this->session->userdata('userdata')):?>
+			<div id ="movetable" style="z-index:11;width:100px;position:absolute;top:500px;left:770px;" >
+				<table id="Move" style="width:70px;height:60px;">
+					<tr colspan="3">
+						<td width="33%" style="cursor:move"></td>
+						<td width="33%"><button id="up" class="btn"><i class="icon-arrow-up"></i></button></td>
+						<td width="33%"style="cursor:move"></td>
+					</tr>
+					<tr>
+						<td ><button id="left" class="btn"><i class="icon-arrow-left"></i></button></td>
+						<td ><button id="down" class="btn"><i class="icon-arrow-down"></i></button></td>
+						<td ><button id="right" class="btn"><i class="icon-arrow-right"></i></button></td>
+					</tr>
+				</table>
+			</div>
+			<div class="pull-right">
+				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn btn-mini" id="num0">84×56</a>
+				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn btn-mini" id="num1">60×40</a>
+				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn btn-mini" id="num2">42×28</a>
+				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn btn-mini" id="num3">30×20</a>				
+			</div>
+	
+			<div id="changenumber" class="modal hide fade">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal">×</button>
+				  <div>
+					<h3><span class="label label-important">友情提示</span>真的要切换格子的数目？</h3>
+			      </div>
+			    </div>
+				<div class="modal-body">
+				  <h4>切换后当前未提交作品会被清空的！！</h6>
+				</div>
+				<div class="modal-footer">
+				  <div class="btn btn-primary" data-dismiss="modal" id="changegrid">确定</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+
+	<?php if($this->session->userdata('userdata')):?>
 			<div id="worksubmit" class="modal hide fade">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">×</button>
@@ -204,41 +269,5 @@
               <a href="#" class="btn btn-danger"  id="workpost">提交</a>
             </div>
           </div>
-      <?php endif;?>
-			<div class="pull-right">
-				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn btn-mini" id="num0">84×54</a>
-				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn btn-mini" id="num1">56×36</a>
-				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn btn-mini" id="num2">42×27</a>
-				<a data-toggle="modal" href="#changenumber" class="btn cx-changebtn btn-mini" id="num3">28×18</a>				
-			</div>
-
-		<table style="width:70px;height:60px;">
-			<tr colspan="3">
-				<td width="33%"></td>
-				<td width="33%"><button id="up" class="btn"><i class="icon-arrow-up"></i></button></td>
-				<td width="33%"></td>
-			</tr>
-			<tr>
-				<td ><button id="left" class="btn"><i class="icon-arrow-left"></i></button></td>
-				<td ><button id="down" class="btn"><i class="icon-arrow-down"></i></button></td>
-				<td ><button id="right" class="btn"><i class="icon-arrow-right"></i></button></td>
-			</tr>
-		</table>
-			
-			<div id="changenumber" class="modal hide fade">
-				<div class="modal-header">
-				  <button type="button" class="close" data-dismiss="modal">×</button>
-				  <div>
-					<h3><span class="label label-wang">友情提示</span>真的要切换格子的数目？</h3>
-			      </div>
-			    </div>
-				<div class="modal-body">
-				  <h4>切换后当前未提交作品会被清空的！！</h6>
-				</div>
-				<div class="modal-footer">
-				  <div class="btn btn-primary" data-dismiss="modal" id="changegrid">确定</div>
-				</div>
-			</div>
-		</div>
-		<hr>
+      <?php endif;?>		
 		
