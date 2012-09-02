@@ -4,7 +4,7 @@
 	<script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/js/canvasjs/jquery-ui-1.8.20.custom.min.js"></script>
 
 			
-		<script type="text/javascript">
+	<script type="text/javascript">
 			var Pixels2D = (function() {
 				var API ={};
 				var action = [];
@@ -18,7 +18,7 @@
 				var gridcanvas;//网格
 				var gridcontext;
 				
-				var cubewidth=[10,15,20,30];//格子大小
+				var cubewidth=[10,14,20,28];//格子大小
 				var cwlevel=3;	
 				var gridflag=true;	
 				
@@ -32,16 +32,19 @@
 					gridcontext=gridcanvas.getContext('2d');
 					worldcanvas=document.getElementById('world');
 					worldcontext=worldcanvas.getContext('2d');
+					worldcontext.translate(worldwidth/2,worldheight/2);
 					paintgrid();
-					var tempjson=$("#cubejson").text();//'[{"a":"a","c":"#cccccc","x":210,"y":330,"w":29},{"a":"a","c":"#cccccc","x":330,"y":300,"w":29},{"a":"a","c":"#cccccc","x":270,"y":210,"w":29},{"a":"a","c":"#cccccc","x":210,"y":240,"w":29},{"a":"a","c":"#cccccc","x":450,"y":270,"w":29},{"a":"a","c":"#cccccc","x":360,"y":330,"w":29},{"a":"a","c":"#cccccc","x":360,"y":390,"w":29},{"a":"a","c":"#cccccc","x":420,"y":360,"w":29},{"a":"a","c":"#cccccc","x":30,"y":330,"w":29},{"a":"a","c":"#cccccc","x":60,"y":360,"w":29},{"a":"a","c":"#cccccc","x":90,"y":390,"w":29}]';
-					loadJSON(tempjson);		
+					if($("#cubejson").length > 0){
+						var tempjson=$("#cubejson").text();//'[{"a":"a","c":"#cccccc","x":210,"y":330,"w":29},{"a":"a","c":"#cccccc","x":330,"y":300,"w":29},{"a":"a","c":"#cccccc","x":270,"y":210,"w":29},{"a":"a","c":"#cccccc","x":210,"y":240,"w":29},{"a":"a","c":"#cccccc","x":450,"y":270,"w":29},{"a":"a","c":"#cccccc","x":360,"y":330,"w":29},{"a":"a","c":"#cccccc","x":360,"y":390,"w":29},{"a":"a","c":"#cccccc","x":420,"y":360,"w":29},{"a":"a","c":"#cccccc","x":30,"y":330,"w":29},{"a":"a","c":"#cccccc","x":60,"y":360,"w":29},{"a":"a","c":"#cccccc","x":90,"y":390,"w":29}]';
+						loadJSON(tempjson);		
+					}
 				}
 				
 				API.PaintOneCube = function(event){
 				
 					event.preventDefault();
-					mousex = getOffset(event).offsetX;
-					mousey = getOffset(event).offsetY
+					mousex = getOffset(event).offsetX-(worldwidth/2);
+					mousey = getOffset(event).offsetY-(worldheight/2);
 
 					x = (Math.floor(mousex/cubewidth[cwlevel]))*cubewidth[cwlevel];
 					y = (Math.floor(mousey/cubewidth[cwlevel]))*cubewidth[cwlevel];
@@ -282,7 +285,7 @@
 				}
 				
 				function clearworld(){
-					worldcontext.clearRect(0,0,worldwidth,worldheight);
+					worldcontext.clearRect(-worldwidth/2,-worldheight/2,worldwidth,worldheight);
 				}//清除画布
 				
 				function cleargrid(){
@@ -321,9 +324,19 @@
 				Pixels2D.SwitchGrid();
 			});
 			
-			$( "#colorpad-window" ).draggable({ containment: 'parent',scroll:false });
-			$( "#tool-window" ).draggable({ containment: 'parent',scroll:false });
-			$( "#color-window" ).draggable({ containment: 'parent',scroll:false });
+			var canvasx = $("#worldbackground").offset().left;//position().left;
+			var canvasy = $("#worldbackground").offset().top;
+			var canvasw = $("#worldbackground").width();
+			var canvash = $("#worldbackground").height();
+			console.log($(".cx-toolbar").width());
+			
+			$( "#colorpad-window" ).draggable({ containment: [canvasx,canvasy,canvasx+canvasw-$("#colorpad").width(),canvasy+canvash-$("#colorpad").height()],scroll:false });
+			
+			$( "#tool-window" ).draggable({ containment: [canvasx-45,canvasy,canvasx+canvasw+2,canvasy+canvash-$(".cx-toolbar").height()],scroll:false });
+			
+			$( "#color-window" ).draggable({ containment: [canvasx,canvasy-45,canvasx+canvasw-$(".cx-colorpalette").width()-20,canvasy+canvash+4],scroll:false });
+			
+			$("#movetable").draggable({containment:[canvasx,canvasy,canvasx+canvasw-$("#Move").width(),canvasy+canvash-$("#Move").height()],scroll:false});
 			
 			$(".cx-changebtn").click(function(event){
 				var tempchoice=$(this).attr("id");
@@ -334,7 +347,7 @@
 				Pixels2D.RepaintGrid();
 			});
 			
-			$("#dustbin").click(function(){
+			$("#clearconfirmed").click(function(){
 				Pixels2D.ResetWorld();
 			});
 			
@@ -354,10 +367,12 @@
 			$("#save").click(function(){
 				Pixels2D.Save();
 			});
-			var model='[{"a":"a","c":"#cccccc","x":210,"y":330,"w":29},{"a":"a","c":"#cccccc","x":330,"y":300,"w":29}]';
-			$("#open").click(function(){
+
+			$("#openconfirmed").click(function(){
+				var model = $('#modeltext').attr('value');
 				Pixels2D.Load(model);
 			});
+
 		</script>
 		<script type="text/javascript">
 			//cx-begin					
@@ -378,14 +393,13 @@
                     else{
 					
 						$(".Active").css({'background-color': "transparent" });
-						
 						$(".cx-colorvalue").val("输入值");
 					}					
 				});
 				
 				var colorconfirmed="#999";
 				
-				var oldcolor=0;
+				var oldcolor=1;
 				
 				$("#cx-applyColor").click(function(){
 				
@@ -406,7 +420,7 @@
 								
 								$("#ocolor"+oldcolor).attr({"title":hexnumber});
 								
-								oldcolor=(oldcolor+1)%10;
+								oldcolor=(oldcolor+1)%12;
 								
 							}	
 							
@@ -528,4 +542,4 @@
             });	
 			}
 	);
-	</script>
+	</script>          
