@@ -136,7 +136,9 @@
 						}
 						else
 						{
-							context.clearRect(rx,ry,rw,rw);
+							//context.clearRect(rx,ry,rw,rw);
+							context.fillStyle=backgroundcolor;
+							context.fillRect(rx,ry,rw,rw);
 						}
 						pcount++;
 						var temp=setTimeout(function(){show();},playspeed);
@@ -193,7 +195,9 @@
 						}
 						else
 						{
-							context.clearRect(x,y,w,w);
+							//context.clearRect(x,y,w,w);
+							context.fillStyle=backgroundcolor;
+							context.fillRect(x,y,w,w);
 						}
 
 					});
