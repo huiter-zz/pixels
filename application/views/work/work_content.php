@@ -12,22 +12,25 @@
 	</div>
 </div>
 <div class="thumbnail thumbnail-vertical">
-	<div id="speedslider" style="width:100px;display:inline-block;"></div>
-	<div class="btn btn-small offset4" id="play"><i class="icon-play"></i></div>
+	<div id="speedslider" style="width:100px;display:inline-block;margin-left:20px;"></div>
+	<div class="btn btn-small" id="play"><i class="icon-play"></i></div>
 	<div class="btn btn-small" id="stop"><i class="icon-stop"></i></div>
-	<div class="btn btn-small" id="save"><i class="icon-camera"></i></div>
-	<div class="btn btn-small" id="rotate2left"><i class="ui-icon ui-icon-arrowthick-1-nw"></i></div>
-	<div class="btn btn-small" id="rotate2right"><i class="ui-icon ui-icon-arrowthick-1-ne"></i></div>
-	<div class="btn btn-small" id="move2left"><i class="icon-arrow-left"></i></div>
-	<div class="btn btn-small" id="move2right"><i class="icon-arrow-right"></i></div>
-	<div class="btn btn-small" id="move2up"><i class="icon-arrow-up"></i></div>
-	<div class="btn btn-small" id="move2down"><i class="icon-arrow-down"></i></div>
-	<div class="btn btn-small" id="refresh"><i class="icon-refresh"></i></div>
-	<span id="cp" class="input-append color" data-color="#FFFFFF" data-color-format="hex">
+
+	<span id="cp" class="input-append color offset1" data-color="#FFFFFF" data-color-format="hex">
 	  <span class="label label-inverse">背景色
 	  <span class="add-on"><i style="background-color: #FFFFFF"></i></span>
 	  </span>
 	</span>
+	<div class="btn btn-small" id="save"><i class="icon-camera"></i></div>
+	
+	<div class="btn btn-small" id="rotate2left"><i class="ui-icon ui-icon-arrowthick-1-nw"></i></div>
+	<div class="btn btn-small" id="rotate2right"><i class="ui-icon ui-icon-arrowthick-1-ne"></i></div>
+	<div class="btn btn-small offset1" id="move2left"><i class="icon-arrow-left"></i></div>
+	<div class="btn btn-small" id="move2right"><i class="icon-arrow-right"></i></div>
+	<div class="btn btn-small" id="move2up"><i class="icon-arrow-up"></i></div>
+	<div class="btn btn-small" id="move2down"><i class="icon-arrow-down"></i></div>
+	<div class="btn btn-small" id="refresh"><i class="icon-refresh"></i></div>
+
 </div>
 <hr>
 <div class="row">
