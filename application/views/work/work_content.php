@@ -12,7 +12,7 @@
 	</div>
 </div>
 <div class="thumbnail thumbnail-vertical">
-	<div id="speedslider" style="width:100px"></div>
+	<div id="speedslider" style="width:100px;display:inline-block;"></div>
 	<div class="btn btn-small offset4" id="play"><i class="icon-play"></i></div>
 	<div class="btn btn-small" id="stop"><i class="icon-stop"></i></div>
 	<div class="btn btn-small" id="save"><i class="icon-camera"></i></div>
