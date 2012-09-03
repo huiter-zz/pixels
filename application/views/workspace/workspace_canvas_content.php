@@ -58,11 +58,11 @@
 				<div class="modal-header">
 				  <button type="button" class="close" data-dismiss="modal">×</button>
 				  <div>
-					<h3><span class="label label-warning">确定全部清空</span></h3>
+					<h3><span class="label label-warning">全部清空</span></h3>
 			      </div>
 			    </div>
 				<div class="modal-body">
-				  <h4>想好了么亲~当前操作不可逆的哦~</h4>
+				  <h4>清空操作是无法还原的，确定要清空么？</h4>
 				</div>
 				<div class="modal-footer">
 				  <div class="btn btn-primary" data-dismiss="modal" id="clearconfirmed">确定</div>
@@ -229,11 +229,11 @@
 				<div class="modal-header">
 				  <button type="button" class="close" data-dismiss="modal">×</button>
 				  <div>
-					<h3><span class="label label-important">友情提示</span>真的要切换格子的数目？</h3>
+					<h3><span class="label label-important">格子尺寸切换</span></h3>
 			      </div>
 			    </div>
 				<div class="modal-body">
-				  <h4>切换后当前未提交作品会被清空的！！</h6>
+				  <h4>切换格子后当前未提交作品会被清空的，确定要切换么？</h6>
 				</div>
 				<div class="modal-footer">
 				  <div class="btn btn-primary" data-dismiss="modal" id="changegrid">确定</div>

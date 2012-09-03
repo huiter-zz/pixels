@@ -135,10 +135,10 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td><code><i class="icon-arrow-up"></code></td>
-                                <td><code><i class="icon-arrow-down"></code></td>
-                                <td><code><i class="icon-arrow-left"></code></td>
-                                <td><code><i class="icon-arrow-right"></code></td>
+                                <td><code><i class="icon-arrow-up"></i></code></td>
+                                <td><code><i class="icon-arrow-down"></i></code></td>
+                                <td><code><i class="icon-arrow-left"></i></code></td>
+                                <td><code><i class="icon-arrow-right"></i></code></td>
                                 <td><code>P</code></td>
                                 <td><code>N</code></td>
                                 <td><code>M</code></td>
