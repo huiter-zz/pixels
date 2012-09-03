@@ -2,6 +2,8 @@
 <script src="http://storage.aliyun.com/pixels/assets/js/close-pixelate.js"></script>
 <script src="http://storage.aliyun.com/pixels/assets/js/canvas2image.js"></script>
 <script src="http://storage.aliyun.com/pixels/assets/js/base64.js"></script>
+<script src="http://storage.aliyun.com/pixels/assets/Jquery-ui/jquery-ui.min.js"></script>
+
 <!--上面是colorpicker的资源文件-->
 		<script type="text/javascript">
 			var Pixels2D = (function() {
@@ -13,14 +15,21 @@
 			    var canvas;
 			    var context;
 				
+				var cubewidth;
+				var movex=0;
+				var movey=0;
+				
 			    var worldwidth=$("#world").width();
 			    var worldheight=$("#world").height();
 			    var playspeed=800;
-				var backgroundcolor="#ffffff";
+				var backgroundcolor="transparent";
 								
 				API.Initialize = function(){
 					var tempjson=$("#cubejson").text();
 					loadJSON(tempjson);
+					canvas = document.getElementById('world');
+			   		context = canvas.getContext('2d');
+					context.translate(worldwidth/2,worldheight/2);
 					clearworld();
 					repaint();	
 				}
@@ -53,14 +62,71 @@
 					playspeed=value;
 				}
 				
+				var angle=0;
+				API.Rotate2left = function(){
+					clearTimeCount();
+					pcount=0;
+					clearworld();
+					paintworld(backgroundcolor);
+					context.rotate(-Math.PI/18);
+					angle-=Math.PI/18;
+					repaint();
+				}
+				
+				API.Rotate2right = function(){
+					clearTimeCount();
+					pcount=0;
+					clearworld();
+					paintworld(backgroundcolor);
+					context.rotate(Math.PI/18);
+					angle+=Math.PI/18;
+					repaint();
+				}
+				
+				API.Move2left = function(){
+					clearworld();
+					movex-=cubewidth*Math.cos(angle)
+					movey+=cubewidth*Math.sin(angle)
+					paintworld(backgroundcolor);
+					repaint();
+				}
+				
+				API.Move2right = function(){
+					clearworld();
+					movex+=cubewidth*Math.cos(angle)
+					movey-=cubewidth*Math.sin(angle)
+					paintworld(backgroundcolor);
+					repaint();
+				}
+				API.Move2down = function(){
+					clearworld();
+					movey+=cubewidth*Math.cos(angle)
+					movex+=cubewidth*Math.sin(angle)
+					paintworld(backgroundcolor);
+					repaint();
+				}
+				API.Move2up = function(){
+					clearworld();
+					movey-=cubewidth*Math.cos(angle)
+					movex-=cubewidth*Math.sin(angle)
+					paintworld(backgroundcolor);
+					repaint();
+				}
+				API.Refresh = function(){
+					movex=0;
+					movey=0;
+					context.rotate(-angle);
+					angle=0;
+					clearworld();
+					paintworld(backgroundcolor);
+					repaint();
+				}
 				function show(){
-					canvas = document.getElementById('world');
-			   		context = canvas.getContext('2d');
 					if(pcount<action.length){
 						var current = action[pcount],
 						a = current.a,
-						rx = current.x,
-						ry = current.y,
+						rx = current.x+movex,
+						ry = current.y+movey,
 						rc = current.c,
 						rw= current.w;
 						if(a == 'a')
@@ -88,9 +154,11 @@
 					timecount.length=0;
 			    }
 				function paintworld(color){
-					var context = document.getElementById('world').getContext('2d');
+					context.save();
+					context.rotate(angle);
 					context.fillStyle=color;
-					context.fillRect(0,0,worldwidth,worldheight);
+					context.fillRect(-worldwidth,-worldheight,2*worldwidth,2*worldheight);
+					context.restore();
 				}
 				 
 				function loadJSON(mapJson){
@@ -99,20 +167,25 @@
 					};	
 					
 				function clearworld(){
-					canvas = document.getElementById('world');
-			   		context = canvas.getContext('2d');
-					context.clearRect(0,0,worldwidth,worldheight);
+					context.clearRect(-worldwidth/2,-worldheight/2,worldwidth,worldheight);
 			   }//清除画布
 			   
 			    function repaint(){
-					canvas = document.getElementById('world');
-			   		context = canvas.getContext('2d');
+					/*context.lineWidth=1;
+					context.moveTo(-worldwidth/2,-worldheight/2);
+					context.lineTo(-worldwidth/2,worldheight/2);					
+					context.lineTo(worldwidth/2,worldheight/2);
+					context.lineTo(worldwidth/2,-worldheight/2);
+					context.lineTo(-worldwidth/2,-worldheight/2);
+					context.stroke();本来也是为了去白线，结果都变成了黑线...为什么...*/
+					
 					$.each(action,function(index){
 						var a = $(this).attr('a'),
-						x = $(this).attr('x');
-						y= $(this).attr('y');
+						x = $(this).attr('x')+movex;
+						y= $(this).attr('y')+movey;
 						c= $(this).attr('c');
 						w = $(this).attr('w');
+						cubewidth=w;
 						if(a == 'a')
 						{							
 							context.fillStyle = c;
@@ -138,12 +211,43 @@
 			});
 
 			$('#cp').colorpicker().on('changeColor', function(ev){
-				  	Pixels2D.SetBackgroundColor(ev.color.toHex());
-					Pixels2D.ChangeBackground(); 
+				Pixels2D.SetBackgroundColor(ev.color.toHex());
+				Pixels2D.ChangeBackground(); 
 				});
 
 			$("#save").click(function(){					
 				var oCanvas = document.getElementById("world");
 				var work = Canvas2Image.saveAsPNG(oCanvas);  
 			});
-		</script>
+			$("#rotate2left").click(function(){
+				Pixels2D.Rotate2left();
+			});
+			$("#rotate2right").click(function(){
+				Pixels2D.Rotate2right();
+			});
+			$("#move2left").click(function(){
+				Pixels2D.Move2left();
+			});
+			$("#move2right").click(function(){
+				Pixels2D.Move2right();
+			});
+			$("#move2up").click(function(){
+				Pixels2D.Move2up();
+			});
+			$("#move2down").click(function(){
+				Pixels2D.Move2down();
+			});
+			$("#refresh").click(function(){
+				Pixels2D.Refresh();
+			});
+			$("#speedslider").slider({
+				//orientation: "vertical",
+				range: "min",
+				min: 0,
+				max: 800,
+				value: 0,
+				slide: function(event, ui) { 
+					Pixels2D.SetPlayspeed(800-ui.value);
+				}
+			});
+		</script>   

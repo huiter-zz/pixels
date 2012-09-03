@@ -1,1 +1,2 @@
 <link href="http://storage.aliyun.com/pixels/assets/colorpicker/colorpicker.css" rel="stylesheet">
+<link type="text/css" href="http://storage.aliyun.com/pixels/assets/Jquery-ui/jquery-ui.css" rel="stylesheet" />		
