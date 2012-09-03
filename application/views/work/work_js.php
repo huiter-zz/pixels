@@ -2,7 +2,7 @@
 <script src="http://storage.aliyun.com/pixels/assets/js/close-pixelate.js"></script>
 <script src="http://storage.aliyun.com/pixels/assets/js/canvas2image.js"></script>
 <script src="http://storage.aliyun.com/pixels/assets/js/base64.js"></script>
-<script src="http://storage.aliyun.com/pixels/assets/Jquery-ui/jquery-ui.min.js"></script>
+<script src="http://storage.aliyun.com/pixels/assets/Jquery-ui/jquery-ui-1.8.20.js"></script>
 
 <!--上面是colorpicker的资源文件-->
 		<script type="text/javascript">

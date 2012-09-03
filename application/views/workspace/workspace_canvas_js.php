@@ -1,7 +1,7 @@
  	<script src="http://storage.aliyun.com/pixels/assets/js/canvas2image.js"></script>
 	<script src="http://storage.aliyun.com/pixels/assets/js/base64.js"></script>
    	<script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/js/buttonjs/buttonjs.js"></script>
-	<script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/js/canvasjs/jquery-ui-1.8.20.custom.min.js"></script>
+	<script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/Jquery-ui/jquery-ui-1.8.20.js"></script>
 
 			
 	<script type="text/javascript">
