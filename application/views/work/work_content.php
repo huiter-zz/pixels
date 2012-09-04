@@ -30,6 +30,10 @@
 	  </span>
 	</span>
 	<div class="btn btn-small" id="save"title="保存图片"><i class="icon-camera"></i></div>
+
+	<div class="btn btn-danger" onclick="likepost(<?php echo $work['workid'];?>)">喜欢</div>
+	<a class="btn" href="/workspace?id=<?php echo $work['workid'];?>">再创作</a>
+
 </div>
 <hr>
 <div class="row">
