@@ -33,11 +33,11 @@
 					worldcanvas=document.getElementById('world');
 					worldcontext=worldcanvas.getContext('2d');
 					worldcontext.translate(worldwidth/2,worldheight/2);
-					paintgrid();
 					if($("#cubejson").length > 0){
-						var tempjson=$("#cubejson").text();//'[{"a":"a","c":"#cccccc","x":210,"y":330,"w":29},{"a":"a","c":"#cccccc","x":330,"y":300,"w":29},{"a":"a","c":"#cccccc","x":270,"y":210,"w":29},{"a":"a","c":"#cccccc","x":210,"y":240,"w":29},{"a":"a","c":"#cccccc","x":450,"y":270,"w":29},{"a":"a","c":"#cccccc","x":360,"y":330,"w":29},{"a":"a","c":"#cccccc","x":360,"y":390,"w":29},{"a":"a","c":"#cccccc","x":420,"y":360,"w":29},{"a":"a","c":"#cccccc","x":30,"y":330,"w":29},{"a":"a","c":"#cccccc","x":60,"y":360,"w":29},{"a":"a","c":"#cccccc","x":90,"y":390,"w":29}]';
+						var tempjson=$("#cubejson").text();
 						loadJSON(tempjson);		
 					}
+					paintgrid();
 				}
 				
 				API.PaintOneCube = function(event){
@@ -185,7 +185,7 @@
 						action.length=0;//clear action
 						action=JSON.parse(mapJson);
 						$.each(cubewidth,function(index){
-							if(action[0].width==cubewidth[index]){
+							if(action[0].w==cubewidth[index]){
 								cwlevel=index;
 							}
 						});
@@ -328,7 +328,6 @@
 			var canvasy = $("#worldbackground").offset().top;
 			var canvasw = $("#worldbackground").width();
 			var canvash = $("#worldbackground").height();
-			console.log($(".cx-toolbar").width());
 			
 			$( "#colorpad-window" ).draggable({ containment: [canvasx,canvasy,canvasx+canvasw-$("#colorpad").width(),canvasy+canvash-$("#colorpad").height()],scroll:false });
 			
