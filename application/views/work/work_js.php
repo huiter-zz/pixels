@@ -3,7 +3,6 @@
 <script src="http://storage.aliyun.com/pixels/assets/js/canvas2image.js"></script>
 <script src="http://storage.aliyun.com/pixels/assets/js/base64.js"></script>
 <script src="http://storage.aliyun.com/pixels/assets/Jquery-ui/jquery-ui-1.8.20.js"></script>
-
 <!--上面是colorpicker的资源文件-->
 		<script type="text/javascript">
 			var Pixels2D = (function() {
@@ -22,7 +21,7 @@
 			    var worldwidth=$("#world").width();
 			    var worldheight=$("#world").height();
 			    var playspeed=800;
-				var backgroundcolor="transparent";
+				var backgroundcolor="white";
 								
 				API.Initialize = function(){
 					var tempjson=$("#cubejson").text();
@@ -136,9 +135,8 @@
 						}
 						else
 						{
-							//context.clearRect(rx,ry,rw,rw);
 							context.fillStyle=backgroundcolor;
-							context.fillRect(rx,ry,rw,rw);
+							context.fillRect(rx-0.5,ry-0.5,rw+1,rw+1);
 						}
 						pcount++;
 						var temp=setTimeout(function(){show();},playspeed);
@@ -173,14 +171,6 @@
 			   }//清除画布
 			   
 			    function repaint(){
-					/*context.lineWidth=1;
-					context.moveTo(-worldwidth/2,-worldheight/2);
-					context.lineTo(-worldwidth/2,worldheight/2);					
-					context.lineTo(worldwidth/2,worldheight/2);
-					context.lineTo(worldwidth/2,-worldheight/2);
-					context.lineTo(-worldwidth/2,-worldheight/2);
-					context.stroke();本来也是为了去白线，结果都变成了黑线...为什么...*/
-					
 					$.each(action,function(index){
 						var a = $(this).attr('a'),
 						x = $(this).attr('x')+movex;
@@ -195,9 +185,13 @@
 						}
 						else
 						{
-							//context.clearRect(x,y,w,w);
 							context.fillStyle=backgroundcolor;
-							context.fillRect(x,y,w,w);
+							//context.fillStyle="black";
+							context.fillRect(x-0.5,y-0.5,w+1,w+1);
+							/*context.fillRect(x-0.5,y+0.5,w,0.5);
+							context.fillRect(x-0.5,y+0.5,0.5,w);
+							context.fillRect(x-0.5,y+w,w,0.5);
+							context.fillRect(x+w,y-0.5,0.5,w);*/
 						}
 
 					});
@@ -223,7 +217,7 @@
 				var oCanvas = document.getElementById("world");
 				var work = Canvas2Image.saveAsPNG(oCanvas);  
 			});
-			$("#rotate2left").click(function(){
+			$("#rotate2left").mousedown(function(){
 				Pixels2D.Rotate2left();
 			});
 			$("#rotate2right").click(function(){
@@ -253,5 +247,5 @@
 				slide: function(event, ui) { 
 					Pixels2D.SetPlayspeed(800-ui.value);
 				}
-			});
-		</script>   
+			}); 
+		</script>    
