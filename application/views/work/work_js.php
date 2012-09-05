@@ -20,7 +20,7 @@
 				
 			    var worldwidth=$("#world").width();
 			    var worldheight=$("#world").height();
-			    var playspeed=800;
+			    var playspeed=400;
 				var backgroundcolor="white";
 								
 				API.Initialize = function(){
@@ -243,7 +243,7 @@
 				range: "min",
 				min: 0,
 				max: 800,
-				value: 0,
+				value: 400,
 				slide: function(event, ui) { 
 					Pixels2D.SetPlayspeed(800-ui.value);
 				}
