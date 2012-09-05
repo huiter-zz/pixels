@@ -535,7 +535,7 @@
  			 		e.preventDefault();
  			 		$('#worksubmit').modal('hide');
                     $.post("/api/v1/work",{img:strDataURI,tag1:tag1,tag2:tag2,tag3:tag3,cubejson:cubejson},function( data ) {
-                    window.location.href="/work/"+data['world'];
+                    window.location.href="/work/"+data['workid'];
                     history.go(0);
               },"json")
             });	
