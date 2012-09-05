@@ -33,11 +33,13 @@
 					worldcanvas=document.getElementById('world');
 					worldcontext=worldcanvas.getContext('2d');
 					worldcontext.translate(worldwidth/2,worldheight/2);
+
 					if($("#cubejson").length > 0){
 						var tempjson=$("#cubejson").text();
 						loadJSON(tempjson);		
 					}
-				
+					cleargrid();
+					paintgrid();
 				}
 				
 				API.PaintOneCube = function(event){
@@ -191,7 +193,9 @@
 						});
 						repaint();
 						$("#undo").css("background-position","0 -68px");
+						cleargrid();
 						paintgrid();
+
 				};
 				
 				function resetworld(){
