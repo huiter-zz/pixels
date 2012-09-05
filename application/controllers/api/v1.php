@@ -168,7 +168,7 @@ class V1 extends REST_Controller
 
 
 
-        $this->response(array('message' =>'发布成功' ),200);    
+        $this->response(array('workid' => $workid),200);    
     }
     
   
