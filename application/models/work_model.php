@@ -60,7 +60,7 @@ class Work_model extends CI_Model
         $this->db->join('bestwork','work.workid=bestwork.workid');
         $this->db->join('user','user.uid = work.author');
         $this->db->order_by("rand()");
-        $this->db->limit(2);
+        $this->db->limit(8);
         $query = $this->db->get();
         return $query->result_array();
     }

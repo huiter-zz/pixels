@@ -68,6 +68,9 @@
                             <input name="context" type="text" class="search-query span2" placeholder="8bit">
                             <button class="btn btn-primary " type="submit">搜索</button>
                         </form>
+                        <ul class="nav" style="padding-left:10px;">
+                            <li><a href="/3D" target="_blank"><i class="icon-hand-right icon-white"></i><span class="badge badge-info">3D测试版</span></a></li>
+                        </ul>
                         <ul class="nav pull-right">
                             <li class="divider-vertical"></li>
 
