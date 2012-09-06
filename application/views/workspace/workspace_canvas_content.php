@@ -105,7 +105,7 @@
 											<span class="QuickColor" title="ffaaaa" style="background-color: #ffaaaa;">&nbsp;</span>
 											<span class="QuickColor" title="ff5656" style="background-color: #ff5656;">&nbsp;</span>
 											<span class="QuickColor" title="ff0000" style="background-color: #ff0000;">&nbsp;</span>
-											<span class="QuickColor" title="#bf0000" style="background-color: #bf0000;">&nbsp;</span>
+											<span class="QuickColor" title="bf0000" style="background-color: #bf0000;">&nbsp;</span>
 											<span class="QuickColor" title="7f0000" style="background-color: #7f0000;">&nbsp;</span>
 											<span class="QuickColor" title="ffffff" style="background-color: #ffffff;">&nbsp;</span>
 											<span class="QuickColor" title="ffd4aa" style="background-color: #ffd4aa;">&nbsp;</span>
