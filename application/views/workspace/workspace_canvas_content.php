@@ -21,7 +21,7 @@
 <!--画布-->
 	<div style="height:600px;position:relative;">
 		<div id="workplace" style="margin:0 auto; width:840px;">
-			<canvas id="worldbackground" width="840 px" height="560 px" style="background:transparent;z-index:1;margin:0 auto;position:absolute;top:0px;"><h3 style="text-align:center;">你的浏览器还不支持Canvas，请尝试使用<a class="btn" href="www.google.com/chrome/">CHROME浏览器</a></h3></canvas>
+			<canvas id="worldbackground" width="840 px" height="560 px" style="background:transparent;z-index:1;margin:0 auto;position:absolute;top:0px;"><h3 style="text-align:center;">你的浏览器还不支持Canvas，请尝试使用<a class="btn" href="http://www.google.com/chrome/" target="_blank">CHROME浏览器</a></h3></canvas>
 			<canvas id="world" width="840 px" height="560 px" style="z-index:1;"></canvas>
 		</div>
 <!--工具栏图标-->
