@@ -501,6 +501,23 @@ class V1 extends REST_Controller
         }
 
         $this->response(array('message' => '提交成功'), 200);  
+    }
+    function feedback_post()
+    {
+    
+        $in['email'] = $this->input->post('email');
+        $in['message'] = $this->input->post('message');
+        $in['kind'] = $this->input->post('kind');
 
+        $this->load->model('feedback_model', '', TRUE);
+        
+        $data['email'] = $in['email'];
+        $data['kind'] = $in['kind'];
+        $data['message'] = $in['message'];
+
+
+        $id=$this->feedback_model->insert_entry($data);
+
+        $this->response(array('message' => '感谢你的反馈，Pixels会竭尽全力为你提供最完美的体验。'), 200);  
     }
 }
