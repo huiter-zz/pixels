@@ -84,7 +84,7 @@
                       <div class="span4">
                           <!-- 游戏区域 -->
                           <div id="game">
-                            <canvas id="game_area" class="thumbnail" height="480" width="300" >您的浏览器不给力呀，换个Chrome吧！</canvas>                                        
+                            <canvas id="game_area" class="thumbnail" height="480" width="300" ><h3 style="text-align:center;">你的浏览器还不支持Canvas，请尝试使用<a class="btn" href="http://www.google.com/chrome/" target="_blank">CHROME浏览器</a></h3></canvas>                                        
                           </div>
                       </div>
 
