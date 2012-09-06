@@ -99,7 +99,34 @@
             </div>
         </div>
 
-    
+    <a data-toggle="modal" href="#feedbackmodel" id="feedback" style="display:block;position:fixed;top:200px;left:0px;width:30px;height:120px;background:grey;color:white;">
+        <span style="padding: 22px 0 0 4px;display: inline-block;font-size: 20px;">意见反馈</span>
+    </a>
+    <div id="feedbackmodel" class="modal hide fade">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">×</button>
+              <h3>意见反馈</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                  <div class="control-group">
+                    <label class="control-label" for="inputEmail">邮箱</label>
+                    <div class="controls">
+                      <input type="text" id="email" placeholder="you@example.com">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="inputPassword">意见</label>
+                    <div class="controls">
+                            <textarea rows="6" id="message"></textarea>
+                    </div>
+                  </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn btn-danger"  id="feedbackpost">提交</a>
+            </div>
+          </div>
     <div class="container">
         
     <header style="text-align:center;">
@@ -161,6 +188,27 @@
     <!-- RENREN Button END -->
     <!-- 百度统计 BEGIN -->
     <script type="text/javascript">
+    $("#feedback").hover(
+    function(){
+        $("#feedback").css("background-color","#333333");
+    },
+    function(){
+        $("#feedback").css("background-color","grey");
+    });
+
+    $("#feedbackpost").click(function(){
+        email=$('#email').attr('value');
+        message=$('#message').attr('value');
+       
+        $.post("/api/v1/feedback",{email:email,message:message},function( data ) {
+           alert(data['message']);
+        },"json")
+        $('#feedbackmodel').modal('hide')
+        email=$('#email').attr('value','');
+        message=$('#message').attr('value','');
+    });
+
+
     var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
     document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fead5f49f1d56d4ba53460b22fa197858' type='text/javascript'%3E%3C/script%3E"));
     </script>
