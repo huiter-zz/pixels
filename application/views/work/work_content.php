@@ -8,7 +8,7 @@
 
 <div>
 	<div id="workplace" style="margin:0 auto;width:840px;">
-		<canvas id="world" width="840 px" height="560 px" style="z-index:999;"></canvas>
+		<canvas id="world" width="840 px" height="560 px" style="z-index:999;"><h3 style="text-align:center;">你的浏览器还不支持Canvas，请尝试使用<a class="btn" href="www.google.com/chrome/">CHROME浏览器</a></h3></canvas>
 	</div>
 </div>
 <div class="thumbnail thumbnail-vertical">
