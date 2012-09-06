@@ -5,6 +5,16 @@
   <li class="active"><span class="label">作品廊</span></li>
 </ul>
 <div class="row">
+     <?php if(!empty($bestwork_info)):?>
+          <?php foreach ($bestwork_info as $key => $value) :?>
+          <div class="span2" style="height:100px;background:#CCCCCC;">
+             <a href="/work/<?php echo $value['workid']?>"><img src="<?php echo $value['img']?>" alt=""></a>
+         </div>
+        <?php endforeach;?>
+      <?php endif;?>
+</div>
+<hr>
+<div class="row">
 
 <div class="span8">
     <h1><small>标签墙</small></h1>
@@ -43,7 +53,7 @@
 
       <div class="accordion-group">
         <div class="accordion-heading">
-          <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse<?php echo $key;?>">
+          <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse<?php echo $key;?>" style="min-height:36px;">
             <a href="/book/<?php echo $value['authorid']?>"><?php echo $value['authorname']?></a>于<?php echo date("Y-m-d",strtotime($value['createdate']));?>创造了此作品.
           </span>
         </div>
