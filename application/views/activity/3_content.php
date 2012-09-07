@@ -26,7 +26,7 @@
 						<div class="thumbnail " >
 							<div id="original" style="">
 							<a > 
-								<img id="imgOriginal"  src="http://placehold.it/400x200" style="display:block;margin:0 auto;"alt=""> 
+								<img id="imgOriginal"  src="http://storage.aliyun.com/pixels/assets/img/400x200.gif" style="display:block;margin:0 auto;"alt=""> 
 							</a>
 							</div>
 							<hr>
@@ -45,7 +45,7 @@
 			              </div>
 			             <div class="modal-body" style="">
 			             	<div id="hack">
-                				<img id="imgProcessed" src="http://placehold.it/400x200" alt="">
+                				<img id="imgProcessed" src="http://storage.aliyun.com/pixels/assets/img/400x200.gif" alt="">
                 			</div>
               			 </div>
               			 <div class="modal-footer">
