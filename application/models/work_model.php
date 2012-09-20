@@ -64,7 +64,17 @@ class Work_model extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
-    
+    function get_last18work()
+    {
+        $this->db->select('*');
+        $this->db->from('work');
+        $this->db->join('user','user.uid = work.author');
+        $this->db->order_by("workid","desc");
+        $this->db->limit(18);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
     function get_tagwork($tagname,$page)
     {
         $begin=($page-1)*12;
