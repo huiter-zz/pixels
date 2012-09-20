@@ -4,10 +4,10 @@
   </li>
   <li class="active"><span class="label">作品廊</span></li>
 </ul>
-<div class="row">
+<div class="row" style="margin-left:15px;">
      <?php if(!empty($bestwork_info)):?>
           <?php foreach ($bestwork_info as $key => $value) :?>
-          <div class="span2" style="height:100px;background:#CCCCCC;">
+          <div class="span2" style="height:100px;background:#EEEEEE;margin-bottom:10px;margin-left:10px;">
              <a href="/work/<?php echo $value['workid']?>"><img src="<?php echo $value['img']?>" alt=""></a>
          </div>
         <?php endforeach;?>

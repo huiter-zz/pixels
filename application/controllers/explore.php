@@ -25,7 +25,7 @@ class Explore extends Pixel_Controller
 		$lastworkinfo = json_decode($lastworkinfo_json,TRUE);
 		$this->template['lastwork_info'] = $lastworkinfo;
 
-		$this->curl->create(base_url("/api/v1/bestwork"));
+		$this->curl->create(base_url("/api/v1/last18work"));
 		$bestwork_info = json_decode($this->curl->execute(),TRUE);
 		$this->template['bestwork_info'] = $bestwork_info;
 		//$this->curl->create(base_url("/api/explore/lastworkinfo/format/json"));

@@ -425,6 +425,34 @@ class V1 extends REST_Controller
             $this->response(array('error' => 'bestworkinfo could not be found'), 400);
         }
     }
+    function last18work_get()
+    {
+        $this->load->model('work_model', '', TRUE);
+        $works = $this->work_model->get_last18work();
+
+        if($works)
+        {
+            foreach ($works as $key => $value)
+            {
+
+                $out[$key]['workid'] = $value['workid'];
+                $out[$key]['authorname'] = $value['name'];
+                $out[$key]['authorid'] = $value['uid'];
+                $out[$key]['likesnum'] = $value['likesnum'];
+                $out[$key]['img'] = $value['img'];
+                $out[$key]['tags'] = $value['tags'];
+                $out[$key]['kind'] = $value['kind'];
+                $out[$key]['cubejson'] = $value['cubejson'];
+                $out[$key]['createdate'] = $value['createdate'];
+
+            }
+            $this->response($out, 200); // 200 being the HTTP response code
+        }
+        else
+        {
+            $this->response(array('error' => 'bestworkinfo could not be found'), 400);
+        }
+    }
     //活动【二维码获取】
     function qr_get()
     {
