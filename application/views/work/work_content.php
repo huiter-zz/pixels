@@ -5,7 +5,33 @@
   <li class="active"><span class="label"><?php echo $work['workid'];?>号作品</span></li>
 </ul>
 <span id="cubejson" style="display:none;"><?php echo file_get_contents($work['cubejson']);?></span>
-
+<table class="table table-bordered table-striped table-condensed">
+                            <thead>
+                            	<tr>
+    								<th width="20%">作者</th>
+									<th width="10%">喜欢数</th>
+									<th width="20%">创作时间</th>
+									<th><i class="icon-tag"></i>标签</th>
+    							</tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td><a href="/book/<?php echo $work['uid'];?>"><code><?php echo $work['name'];?></code></a></td>
+                                <td><code><?php echo $work['likesnum'];?></code></td>
+                                <td><code><?php echo $work['createdate'];?></code></td>
+                                <td>
+                                <?php $tags =explode(";",$work['tags']);?>
+                                <?php foreach ($tags as $key => $tag) :?> 
+                                <?php if (!empty($tag)):?>            
+                                <a class="tag" href="/tag/<?php echo $tag;?>">
+                                    <span class="label label-info "><?php echo $tag;?></span>
+                                </a>
+                                <?php endif;?>
+                                <?php endforeach;?>
+                                </td>
+                              </tr>
+                            </tbody>
+                        </table>
 <div>
 	<div id="workplace" style="margin:0 auto;width:840px;">
 		<canvas id="world" width="840 px" height="560 px" style="z-index:999;"><h3 style="text-align:center;">你的浏览器还不支持Canvas，请尝试使用<a class="btn" href="http://www.google.com/chrome/" target="_blank">CHROME浏览器</a></h3></canvas>
