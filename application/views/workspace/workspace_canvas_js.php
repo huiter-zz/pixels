@@ -2,8 +2,6 @@
 	<script src="http://storage.aliyun.com/pixels/assets/js/base64.js"></script>
    	<script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/js/buttonjs/buttonjs.js"></script>
 	<script type="text/javascript" src="http://storage.aliyun.com/pixels/assets/Jquery-ui/jquery-ui-1.8.20.js"></script>
-
-			
 	<script type="text/javascript">
 			var Pixels2D = (function() {
 				var API ={};
@@ -33,13 +31,16 @@
 					worldcanvas=document.getElementById('world');
 					worldcontext=worldcanvas.getContext('2d');
 					worldcontext.translate(worldwidth/2,worldheight/2);
-
 					if($("#cubejson").length > 0){
-						var tempjson=$("#cubejson").text();
+						var tempjson=$("#cubejson").text();//'[{"a":"a","c":"#cccccc","x":210,"y":330,"w":29},{"a":"a","c":"#cccccc","x":330,"y":300,"w":29},{"a":"a","c":"#cccccc","x":270,"y":210,"w":29},{"a":"a","c":"#cccccc","x":210,"y":240,"w":29},{"a":"a","c":"#cccccc","x":450,"y":270,"w":29},{"a":"a","c":"#cccccc","x":360,"y":330,"w":29},{"a":"a","c":"#cccccc","x":360,"y":390,"w":29},{"a":"a","c":"#cccccc","x":420,"y":360,"w":29},{"a":"a","c":"#cccccc","x":30,"y":330,"w":29},{"a":"a","c":"#cccccc","x":60,"y":360,"w":29},{"a":"a","c":"#cccccc","x":90,"y":390,"w":29}]';
 						loadJSON(tempjson);		
 					}
-					cleargrid();
 					paintgrid();
+				}
+				
+				var cubelist=[];
+				API.ResetCubeList = function(){
+					cubelist.length=0;
 				}
 				
 				API.PaintOneCube = function(event){
@@ -50,20 +51,48 @@
 
 					x = (Math.floor(mousex/cubewidth[cwlevel]))*cubewidth[cwlevel];
 					y = (Math.floor(mousey/cubewidth[cwlevel]))*cubewidth[cwlevel];
-					if(status == 'add')
-					{
-						worldcontext.fillStyle = pickedColor;
-						worldcontext.fillRect(x,y,cubewidth[cwlevel],cubewidth[cwlevel]);
-						action.push({a:'a',c:pickedColor,x:x,y:y,w:cubewidth[cwlevel]});
-						reAction.length=0;			
-					}
-					else
-					{
-						worldcontext.clearRect(x,y,cubewidth[cwlevel],cubewidth[cwlevel]);
-						action.push({a:'d',c:pickedColor,x:x,y:y,w:cubewidth[cwlevel]});
-						reAction.length=0;
-					}
 					
+					if(cubelist.length==0){
+						if(status == 'add')
+							{
+								worldcontext.fillStyle = pickedColor;
+								worldcontext.fillRect(x,y,cubewidth[cwlevel],cubewidth[cwlevel]);
+								action.push({a:'a',c:pickedColor,x:x,y:y,w:cubewidth[cwlevel]});
+								reAction.length=0;			
+							}
+							else
+							{
+								worldcontext.clearRect(x,y,cubewidth[cwlevel],cubewidth[cwlevel]);
+								action.push({a:'d',c:pickedColor,x:x,y:y,w:cubewidth[cwlevel]});
+								reAction.length=0;
+							}
+							cubelist.push({cx:x,cy:y});
+					}
+					else{
+						var flag=1;
+						$.each(cubelist,function(index){
+							if(cubelist[index].cx==x&&cubelist[index].cy==y){
+								flag=0;
+								return false;
+							}
+						});
+						if(flag==1){
+							if(status == 'add')
+								{
+									worldcontext.fillStyle = pickedColor;
+									worldcontext.fillRect(x,y,cubewidth[cwlevel],cubewidth[cwlevel]);
+									action.push({a:'a',c:pickedColor,x:x,y:y,w:cubewidth[cwlevel]});
+									reAction.length=0;			
+								}
+								else
+								{
+									worldcontext.clearRect(x,y,cubewidth[cwlevel],cubewidth[cwlevel]);
+									action.push({a:'d',c:pickedColor,x:x,y:y,w:cubewidth[cwlevel]});
+									reAction.length=0;
+								}
+								cubelist.push({cx:x,cy:y});
+						}
+					}
 				}
 				
 				API.UnDo = function(){
@@ -72,6 +101,7 @@
 						var lastaction = action[actionlen-1];
 						reAction.push(lastaction);
 						action.pop();
+						console.log(action.length);
 						repaint();
 						
 						if(actionlen==1)
@@ -183,6 +213,7 @@
 					});
 					repaint();
 				}
+				
 				function loadJSON(mapJson){
 						action.length=0;//clear action
 						action=JSON.parse(mapJson);
@@ -193,9 +224,6 @@
 						});
 						repaint();
 						$("#undo").css("background-position","0 -68px");
-						cleargrid();
-						paintgrid();
-
 				};
 				
 				function resetworld(){
@@ -302,21 +330,28 @@
 			Pixels2D.Initialize();
 		</script>
 		<script type="text/javascript">
-		
-			$("#workplace").click(function(event){
+			var status="none";
+			$("#workplace").mousedown(function(event){
+				status="mousedown";
+				Pixels2D.ResetCubeList();
 				Pixels2D.PaintOneCube(event);
 				$("#redo").css("background-position","-33px -102px");//重做图标失效
 				$("#undo").css("background-position","0 -68px");//撤销图标生效
+				$("#workplace").mousemove(function(event){
+					if(status=="mousedown")
+						Pixels2D.PaintOneCube(event);
+				});
 			}); 
-			
+			$("#workplace").mouseup(function(event){
+				status="mouseup";
+				Pixels2D.ResetCubeList();
+			});
 			$("#clean").click(function(e){
 				Pixels2D.SetStatus('delete');
 			});	
-			
 			$("#singleCube").click(function(e){
 				Pixels2D.SetStatus('add');
 			});
-			
 			$("#undo").click(function(){
 				Pixels2D.UnDo();		 
 			});
@@ -376,7 +411,45 @@
 				var model = $('#modeltext').attr('value');
 				Pixels2D.Load(model);
 			});
-
+			
+			$(document).keydown(function(event){
+			  //console.log($("#colorpad").css('display'));
+			  var tempflag=1;
+			    $.each($(".modal"),function(){
+					 $str = $.trim($(this).attr('style'));
+					if($str =='display: block;'){
+						tempflag=0;
+					}
+				});
+				if(tempflag!=0){
+					switch(event.keyCode){
+						case 65:
+							$("#singleCube").click();
+							break;
+						case 69:
+							$("#clean").click();
+							break;
+						case 71:
+							$("#grid").click();
+							break;
+						case 83:
+							$("#save").click();
+							break;
+						case 85:
+							$("#undo").click();
+							break;
+						case 82:
+							$("#redo").click();
+							break;
+						case 67:
+							$("#dustbin").click();
+							break;
+						case 79:
+							$("#open").click();
+							break;
+					}
+				}
+			});
 		</script>
 		<script type="text/javascript">
 			//cx-begin					
@@ -540,9 +613,10 @@
  			 		e.preventDefault();
  			 		$('#worksubmit').modal('hide');
                     $.post("/api/v1/work",{img:strDataURI,tag1:tag1,tag2:tag2,tag3:tag3,cubejson:cubejson},function( data ) {
-                    window.location.href="/work/"+data['workid'];
+                    alert(data['message']);
+                    history.go(0);
               },"json")
             });	
 			}
 	);
-	</script>          
+	</script>                 
