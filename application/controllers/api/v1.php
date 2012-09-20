@@ -163,11 +163,6 @@ class V1 extends REST_Controller
             ),
         );
         $response = $oss_sdk_service ->upload_file_by_content($bucket,$object,$upload_file_options);
-        
-
-
-
-
         $this->response(array('workid' => $workid),200);    
     }
     
