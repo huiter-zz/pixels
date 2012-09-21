@@ -9,7 +9,7 @@
 				var reAction =[];
 				var pickedColor = '#cccccc';
 				var status = 'add';
-				
+
 				var worldcanvas;//画布
 				var worldcontext;
 				
@@ -32,9 +32,10 @@
 					worldcontext=worldcanvas.getContext('2d');
 					worldcontext.translate(worldwidth/2,worldheight/2);
 					if($("#cubejson").length > 0){
-						var tempjson=$("#cubejson").text();//'[{"a":"a","c":"#cccccc","x":210,"y":330,"w":29},{"a":"a","c":"#cccccc","x":330,"y":300,"w":29},{"a":"a","c":"#cccccc","x":270,"y":210,"w":29},{"a":"a","c":"#cccccc","x":210,"y":240,"w":29},{"a":"a","c":"#cccccc","x":450,"y":270,"w":29},{"a":"a","c":"#cccccc","x":360,"y":330,"w":29},{"a":"a","c":"#cccccc","x":360,"y":390,"w":29},{"a":"a","c":"#cccccc","x":420,"y":360,"w":29},{"a":"a","c":"#cccccc","x":30,"y":330,"w":29},{"a":"a","c":"#cccccc","x":60,"y":360,"w":29},{"a":"a","c":"#cccccc","x":90,"y":390,"w":29}]';
+						var tempjson=$("#cubejson").text();
 						loadJSON(tempjson);		
 					}
+					cleargrid();
 					paintgrid();
 				}
 				
@@ -224,6 +225,8 @@
 						});
 						repaint();
 						$("#undo").css("background-position","0 -68px");
+						cleargrid();
+				        paintgrid();
 				};
 				
 				function resetworld(){
