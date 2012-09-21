@@ -62,6 +62,7 @@
 
 </div>
 <hr>
+<?php if(1!=1):?>
 <div class="row">
     <div class="span1" style="marigin-left:20px;">
     <script type="text/javascript">
@@ -139,4 +140,5 @@
 		</script>
 	</div>
 </div>
+<?php endif;?>
 <script type='text/javascript' charset='utf-8' src='http://open.denglu.cc/connect/commentcode?appid=91577den0UrhiUt6FQ0Wa92DG85pc3&postid=<?php echo $work['workid'];?>'></script>
