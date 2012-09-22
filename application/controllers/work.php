@@ -14,13 +14,13 @@ class Work extends Pixel_Controller
 	{
 		if(empty($workid))
 		{
-			show_404();
+			redirect("/404");
 		}
 		$this->load->model('work_model','',TRUE);
 		$result = $this->work_model->get_entry_byworkid($workid);
 		if(empty($result))
 		{
-			show_404();
+			 redirect("/404");
 		}
 		$this->curl->create(base_url("/api/v1/work/?workid=".$workid));
 		$work = json_decode($this->curl->execute(),TRUE);
