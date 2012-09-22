@@ -32,7 +32,9 @@
                               </tr>
                             </tbody>
                         </table>
-<div>
+<div class="pull-left" style="margin-top:220px"><a class="btn btn-large" href="/work/<?php echo intval($work['workid'])-1;?>"><i class="icon-chevron-left"></i></a></div>
+	<div class="pull-right" style="margin-top:220px"><a class="btn btn-large" href="/work/<?php echo intval($work['workid'])+1;?>"><i class="icon-chevron-right"></i></a></div>
+<div style="">
 	<div id="workplace" style="margin:0 auto;width:840px;">
 		<canvas id="world" width="840 px" height="560 px" style="z-index:999;"><h3 style="text-align:center;">你的浏览器还不支持Canvas，请尝试使用<a class="btn" href="http://www.google.com/chrome/" target="_blank">CHROME浏览器</a></h3></canvas>
 	</div>
