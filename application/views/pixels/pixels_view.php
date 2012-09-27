@@ -24,7 +24,6 @@
 
     <body style="background-image: url(http://storage.aliyun.com/pixels/assets/img/grid-18px-masked.png);background-repeat: repeat-x;">
         <!-- Login Modal BEGIN -->
-        <a href="http://webscan.360.cn/index/checkwebsite/url/pixels.huiter.me" name="766b66cafb292cec255afa9c1865ae08" >360网站安全检测平台</a>
             <div id="Login" class="modal hide fade">
                 <div class="modal-header">
                 <button class="close" data-dismiss="modal">×</button>
