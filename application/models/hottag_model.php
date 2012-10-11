@@ -25,7 +25,7 @@ class Hottag_model extends CI_Model {
         return $tags;
     }
 
-    function get_entrys_bynothing()
+    function get_entrys_bynothing0()
     {
         $this->db->select('*');
         $this->db->from('hottag');
@@ -34,6 +34,12 @@ class Hottag_model extends CI_Model {
    
         $query = $this->db->get();
 
+        return $query->result_array();
+    }
+
+    function get_entrys_bynothing()
+    {
+        $query = $this->db->query('select * from tag join (select tagid from tag_work group by tagid order by count(*) desc limit 8) hottag on hottag.tagid = tag.tagid join user on tag.bestauthor=user.uid;');
         return $query->result_array();
     }
 }
