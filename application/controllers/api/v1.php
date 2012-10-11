@@ -271,8 +271,6 @@ class V1 extends REST_Controller
                 $out[$key]['worksnum'] = $value['worksnum'];
             }
 
-
-
             $this->response($out, 200); // 200 being the HTTP response code
         }
 

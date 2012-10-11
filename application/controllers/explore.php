@@ -13,6 +13,7 @@ class Explore extends Pixel_Controller
 	public function index()
 	{	
 		$response = $this->rest->get('api/v1/hottaginfo/format/json',NULL,'json');
+		echo $response;
 		$hottaginfo_json = json_encode($response,TRUE);
 		$hottaginfo = json_decode($hottaginfo_json,TRUE);
 		$this->template['hottag_info'] = $hottaginfo;
