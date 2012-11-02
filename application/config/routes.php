@@ -40,7 +40,8 @@
 
 $route['default_controller'] = "/pixels";
 $route['404_override'] = '';
-$route['3D'] = "/threeD";
+$route['3D'] = "threeD/index/";
+$route['3D/(:any)'] = "threeD/index/$1";
 $route['tag/(:any)'] = "tag/index/$1";
 $route['book/(:any)'] = "book/index/$1";
 $route['work/(:any)'] = "work/index/$1";
