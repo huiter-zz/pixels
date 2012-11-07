@@ -240,14 +240,14 @@
 					<h3><span class="label label-important">导入图片</span></h3>
 				</div>
 			</div>
-			<div class="modal-body" style="max-height:800px;">
-				<h3>URL:
-				<input id="imageURL" type="text" style="width:82%;" placeholder="http://example.png 或者 http://example.jpg">
-				<button id="apply_input" class="btn btn-primary">导入图片</button>
+			<div class="modal-body" style="max-height:560px;">
+				<h3>URL：
+				<input id="imageURL" type="text" style="width:82%;" placeholder="请输入PNG或JPG图片的链接地址。">
+				<button id="apply_input" class="btn btn-primary" style="margin-top:-10px;">导入图片</button>
 				</h3>
 				<div>
 					<div style="width:550px;height:560px; float:left">
-					<img id="imageholder" style="max-width:550px; max-height:560px;margin:0 0 0 10px;" src="http://storage.aliyun.com/pixels/assets/img/faultpic.png">
+					<img id="imageholder" style="max-width:550px; max-height:560px;margin:0 auto;" src="http://storage.aliyun.com/pixels/assets/img/faultpic.png">
 					</div>
 					<div id="imagetoolsection" style="display:block;float:left;text-align:left;margin:0 0 0 5px;">
 						<div class="btn-group" style="margin:10px;">
@@ -315,8 +315,12 @@
 								</li>
 							</ul>
 						</div>
-						
-						<button id="progress_input" style="margin:10px; display:none" class="btn btn-primary">处理图片</button>
+						<div id="Iprogresssection"style="display:none">
+							<button id="progress_input" style="margin-left:10px;" class="btn btn-primary">处理图片</button>
+							<div class=" thumbnail " style="margin-left:10px; margin-top:10px;">
+								<span class="label label-info">提示</span>图片是可以进一步裁剪的哦，在图片上选取一个区域试试。
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -339,6 +343,7 @@
 				</div>
 			</div>
 <hr>
+
 
 	<?php if($this->session->userdata('userdata')):?>
 			<div id="worksubmit" class="modal hide fade">

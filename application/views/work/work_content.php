@@ -5,7 +5,7 @@
   <li class="active"><span class="label"><?php echo $work['workid'];?>号作品</span></li>
   <l1 class="pull-right">
   	<a class="btn btn-mini btn-danger" href="/3D/<?php echo $work['workid'];?>">3D视角</a>
-  </l1>>
+  </l1>
 </ul>
 <span id="cubejson" style="display:none;"><?php echo file_get_contents($work['cubejson']);?></span>
 <table class="table table-bordered table-striped table-condensed">
