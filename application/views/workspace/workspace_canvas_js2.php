@@ -485,7 +485,7 @@
 				$(this).html('导入中...');
 				$(this).attr('disabled','true');
 				
-				$('#progress_input').css({'display':'none'});
+				$('#Iprogresssection').css({'display':'none'});
 				if($("#Ialert").length>0){
 					$("#Ialert").alert('close');
 				}
@@ -542,8 +542,8 @@
 							  jcrop_api = this;
 							});
 						});
-						$('#progress_input').css({'display':'block'});
-						$('.jcrop-holder').css({'float':'center'});
+						$('#Iprogresssection').css({'display':'block'});
+						$('.jcrop-holder').css({'margin':'0 auto'});
 						//console.log(imgw);
 						Itempflag=1;
 					};
@@ -891,4 +891,4 @@
             });	
 			}
 	);
-	</script>
+	</script>          
