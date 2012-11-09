@@ -259,7 +259,7 @@
 				function loadJSON(mapJson){
 						action.length=0;//clear action
 						if(mapJson=='PictureFail'){
-							$('<div id="Ialert" class="alert alert-error alert-block" style="width:330px;"><button type="button" class="close" data-dismiss="alert">×</button><strong>错误!</strong>亲~您输的图片来源(百度相册、163相册神马的...)不支持我们的处理哦...换个地址吧~~</div>').appendTo("#imagetoolsection");
+							$('<div id="Ialert" class="alert alert-error alert-block" style="width:330px;"><button type="button" class="close" data-dismiss="alert">×</button><strong>错误!</strong>亲~图片来源(百度相册、163神马的...)不支持我们的处理哦...换个图片地址试试~~</div>').appendTo("#imagetoolsection");
 						}
 						else{
 							action=JSON.parse(mapJson);
@@ -484,72 +484,89 @@
 			$("#apply_input").click(function(){
 				$(this).html('导入中...');
 				$(this).attr('disabled','true');
+
+                if($("#Ialert").length>0){
+                    $("#Ialert").alert('close');//清空已有错误信息
+                }
 				
 				$('#Iprogresssection').css({'display':'none'});
-				if($("#Ialert").length>0){
-					$("#Ialert").alert('close');
-				}
-				var $imgUrl = document.getElementById('imageURL');
-				var $imgOrig = document.getElementById('imageholder');
 				
+				var $imgUrl = document.getElementById('imageURL');
+
 				var reg=/((.png)|(.jpg)|(.jpeg))$/;
+
 				if((($imgUrl).value)==""){
-					if(Itempflag!= 0){
-							jcrop_api.destroy();
-					}
-					$("#apply_input").html('导入图片');
-					$("#apply_input").removeAttr("disabled"); 
-					$('<div id="Ialert" class="alert alert-error alert-block" style="width:330px;"><button type="button" class="close" data-dismiss="alert">×</button><strong>错误!</strong>亲~输个地址吧~</div>').appendTo("#imagetoolsection");
+                    Ishowerror('亲~输个地址吧~');
 				}
 				else if(!(reg.test(($imgUrl).value))){
-					if(Itempflag!= 0){
-							jcrop_api.destroy();
-					}
-					$("#apply_input").html('导入图片');
-					$("#apply_input").removeAttr("disabled"); 
-					$imgOrig.setAttribute('src','http://storage.aliyun.com/pixels/assets/img/failpic.png');
-					$('<div id="Ialert" class="alert alert-error alert-block" style="width:330px;"><button type="button" class="close" data-dismiss="alert">×</button><strong>错误!</strong>亲~我们只能处理png和jpg格式的图片哦...换个地址吧~~</div>').appendTo("#imagetoolsection");
+                    Ishowerror('亲~我们只能处理png和jpg格式的图片哦...换个地址吧~~');
 				}
 				else{
 					//console.log( document.getElementById('imageURL'));
-					img.src = $imgUrl.value;
-					if(Itempflag!= 0){
-						jcrop_api.destroy();
-					}
-					
-					$imgOrig.setAttribute('src', $imgUrl.value);
-					img.onerror=function(){
-					
-						$("#apply_input").html('导入图片');
-						$("#apply_input").removeAttr("disabled"); 
-						if(Itempflag!= 0){
-							jcrop_api.destroy();
-						}
-						$imgOrig.setAttribute('src','http://storage.aliyun.com/pixels/assets/img/failpic.png');
-						$('<div id="Ialert" class="alert alert-error alert-block" style="width:330px;"><button type="button" class="close" data-dismiss="alert">×</button><strong>错误!</strong>输入的图片地址无效呢...提供图片的地址不支持我们的引用，换一个地址吧~</div>').appendTo("#imagetoolsection");
-					};
-					img.onload=function(){
-						
-						$("#apply_input").html('导入图片');
-						$("#apply_input").removeAttr("disabled"); 
-						imgw=$('#imageholder').width();
-						imgh=$('#imageholder').height();
-						jQuery(function() {
-							jQuery('#imageholder').Jcrop({
-								onChange: getspiltposition,
-								onSelect: getspiltposition
-							},function(){
-							  jcrop_api = this;
-							});
-						});
-						$('#Iprogresssection').css({'display':'block'});
-						$('.jcrop-holder').css({'margin':'0 auto'});
-						//console.log(imgw);
-						Itempflag=1;
-					};
+                    if(Itempflag!= 0){
+                        jcrop_api.destroy();
+                    }
+
+                    img.src = $imgUrl.value;
+
+                    if(img.complete){//alert("OK"); 图片已经在浏览器缓存中了
+                       Iloadsuccess($imgUrl.value);
+                    }
+                    else{
+                        img.onload=function(){
+                            //alert("here");
+                            img.onload=null;
+                            Iloadsuccess($imgUrl.value);
+                        };
+                        img.onerror=function(){
+                            Ishowerror('提供图片的地址不支持我们的引用，换一个地址吧~');
+                        };    
+                    }
 				}
-				
 			});
+
+            function Ishowerror(info){//显示错误信息
+                if($("#Ialert").length>0){
+                    $("#Ialert").alert('close');//清空已有错误信息
+                }
+                if(Itempflag!= 0){
+                            jcrop_api.destroy();
+                    }
+
+                $("#apply_input").html('导入图片');
+                $("#apply_input").removeAttr("disabled"); 
+
+                $("#imageholder").attr('src','http://storage.aliyun.com/pixels/assets/img/failpic.png');
+                $("#imageholder").css({'visibility':'visible'});    
+                //document.getElementById('imageholder').style.visibility='visible';
+
+                $('<div id="Ialert" class="alert alert-error alert-block" style="width:330px;"><button type="button" class="close" data-dismiss="alert">×</button><strong>错误!</strong>'+info+'</div>').appendTo("#imagetoolsection");
+            }
+            function Iloadsuccess(url){
+
+                $("#apply_input").html('导入图片');
+                $("#apply_input").removeAttr("disabled"); 
+
+                imgw=$('#imageholder').width();
+                imgh=$('#imageholder').height();
+
+                $('#imageholder').attr('src',url);//显示图片 
+
+                jQuery(function() {
+                    jQuery('#imageholder').Jcrop({
+                        onChange: getspiltposition,
+                        onSelect: getspiltposition
+                    },function(){
+                      jcrop_api = this;
+                    });
+                });
+
+                $('#Iprogresssection').css({'display':'block'});//显示按钮
+                $('.jcrop-holder').css({'margin':'0 auto'});//裁剪控件居中
+
+                //console.log(imgw);
+                Itempflag=1;       
+            }
 			function getspiltposition(c){
 				if(c.w!=0&&c.h!=0){
 					spiltx=c.x/imgw;
@@ -655,7 +672,8 @@
 			
 			var flag_inputhexcolor=false;
 			$(document).keydown(function(event){
-			  //console.log($("#colorpad").css('display'));			  
+			  //console.log($("#colorpad").css('display'));		
+             // console.log(event.keyCode);	  
 			  var tempflag=1;
 			    $.each($(".modal"),function(){	
 					if(navigator.userAgent.indexOf("Firefox")>0){
@@ -692,7 +710,7 @@
 						case 82:
 							$("#redo").click();
 							break;
-						case 67:
+						case 68:
 						if(!flag_inputhexcolor)
 							$("#dustbin").click();
 							break;
@@ -891,4 +909,4 @@
             });	
 			}
 	);
-	</script>          
+	</script>        

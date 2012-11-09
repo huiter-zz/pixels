@@ -36,7 +36,7 @@
 						<div id="getcolor" class="cx-button cx-icon-getcolor" data-original-title="吸取颜色"></div>
 						<div id="undo" class="cx-button cx-icon-undo" data-original-title="撤销/快捷键U"></div>	
 						<div id="redo" class="cx-button cx-icon-redo" data-original-title="重做/快捷键R"></div>
-						<div id="dustbin" data-toggle="modal" href="#clearall" class="cx-button cx-icon-dustbin" data-original-title="清除全部/快捷键C"></div>					
+						<div id="dustbin" data-toggle="modal" href="#clearall" class="cx-button cx-icon-dustbin" data-original-title="清除全部/快捷键D"></div>					
 						<div id="grid" class="cx-button cx-icon-grid" data-original-title="显示网格/快捷键G"></div>
 						<div id="save" class="cx-button cx-icon-save" data-original-title="保存模型/快捷键S"></div>					
 						<div id="open" data-toggle="modal" href="#openconsole" class="cx-button cx-icon-open" data-original-title="导入模型/快捷键O"></div>
@@ -50,7 +50,7 @@
 				<div class="cx-dialog cx-colorpicker">
 						<div class="cx-colorpalette">				
 							<div id="colorp" class="cx-icon-palette" data-original-title="调色板"></div>
-							<div id="ocolor0" class="ocolor ocolorsel" title="DDDDDD" style="background-color: #DDDDDD "></div>
+							<div id="ocolor0" class="ocolor ocolorsel" title="CCCCCC" style="background-color: #CCCCCC"></div>
 							<div id="ocolor1" class="ocolor" title="历史颜色" style="background-color: transparent"></div>
 							<div id="ocolor2" class="ocolor" title="历史颜色" style="background-color: transparent"></div>
 							<div id="ocolor3" class="ocolor" title="历史颜色" style="background-color: transparent"></div>
@@ -204,7 +204,7 @@
 			</div>		
 		</div>
 <!--弹出层-->
-<div id="openconsole" class="modal hide fade">
+	<div id="openconsole" class="modal hide fade">
 			<div class="modal-header">
 			  <button type="button" class="close" data-dismiss="modal">×</button>
 			  <div>
@@ -218,8 +218,8 @@
 			<div class="modal-footer">
 			  <div class="btn btn-primary" data-dismiss="modal" id="openconfirmed">确定</div>
 			</div>
-		</div>
-<div id="clearall" class="modal hide fade">
+	</div>
+	<div id="clearall" class="modal hide fade">
 			<div class="modal-header">
 			  <button type="button" class="close" data-dismiss="modal">×</button>
 			  <div>
@@ -232,8 +232,8 @@
 			<div class="modal-footer">
 			  <div class="btn btn-primary" data-dismiss="modal" id="clearconfirmed">确定</div>
 			</div>
-		</div>
-<div id="inputimage" class="modal hide fade" style=" width:1000px; margin-top:-350px;margin-left:-500px;">
+	</div>
+	<div id="inputimage" class="modal hide fade" style=" width:1000px; margin-top:-350px;margin-left:-500px;">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">×</button>
 				<div>
@@ -326,9 +326,8 @@
 			</div>
 			<div class="modal-fotter">
 			</div>
-		</div>
-
-<div id="changenumber" class="modal hide fade">
+	</div>
+	<div id="changenumber" class="modal hide fade">
 				<div class="modal-header">
 				  <button type="button" class="close" data-dismiss="modal">×</button>
 				  <div>
@@ -341,9 +340,8 @@
 				<div class="modal-footer">
 				  <div class="btn btn-primary" data-dismiss="modal" id="changegrid">确定</div>
 				</div>
-			</div>
+	</div>
 <hr>
-
 
 	<?php if($this->session->userdata('userdata')):?>
 			<div id="worksubmit" class="modal hide fade">
