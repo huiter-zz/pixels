@@ -177,7 +177,7 @@
             document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
             </script>
     <!-- Baidu Button END -->
-    <!-- RENREN Button BEGIN -->
+    <!-- RENREN Button BEGIN
         <script type="text/javascript">
             window.__fwdCfg = {
             "api_key" : "7ba2c0906089496290c6da9eaae429af",
@@ -185,7 +185,7 @@
             };
         </script>
         <script type="text/javascript" src="http://widget.renren.com/js/forward.js" async="true"></script>
-    <!-- RENREN Button END -->
+    RENREN Button END -->
     <!-- 百度统计 BEGIN -->
     <script type="text/javascript">
     $("#feedback").hover(
