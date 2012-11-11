@@ -24,28 +24,31 @@
 					</div>
 					<hr>
 					<div class="btn-group btn-group-vertical">
-						<a id="undo" class="btn btn-large">
-							<i class="icon-arrow-left"></i>
-							撤销
-						</a>
-						<a id="redo" class="btn btn-large">
-							<i class="icon-arrow-right"></i>
-							恢复
-						</a>
-						<a id="clear" class="btn btn-large">
-							<i class="icon-refresh"></i>
-							清空
-						</a>
-						<a id="zoomIn" class="btn btn-large">
-							<i class="icon-zoom-in"></i>
-							放大
-						</a>
-						<a id="zoomOut" class="btn btn-large">
-							<i class="icon-zoom-out"></i>
-							缩小
-						</a>
-					</div>
-					<hr>
+        <a id="undo" class="btn btn-large">
+                <i class="icon-arrow-left"></i>
+                撤销
+        </a>
+        <a id="redo" class="btn btn-large">
+                <i class="icon-arrow-right"></i>
+                恢复
+        </a>
+        <a id="clear" class="btn btn-large">
+                <i class="icon-refresh"></i>
+                清空
+        </a>
+</div>
+<hr>
+<div class="btn-group btn-group-vertical">
+        <a id="zoomIn" class="btn btn-large">
+                <i class="icon-zoom-in"></i>
+                放大
+        </a>
+        <a id="zoomOut" class="btn btn-large">
+                <i class="icon-zoom-out"></i>
+                缩小
+        </a>
+</div>
+<hr>
 					<div class="btn-group">
 						<a class="btn btn-large">
 							<i class="icon-resize-full"></i>
