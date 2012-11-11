@@ -95,7 +95,9 @@
 <script src="http://storage.aliyun.com/pixels/assets/js/application.js"></script>
 <script src="http://storage.aliyun.com/pixels/assets/colorpicker/bootstrap-colorpicker.js"></script>
 <script src="http://storage.aliyun.com/pixels/assets/js/undo.js"></script>
+<script src="http://storage.aliyun.com/pixels/assets/js/RequestAnimationFram.js"></script>
 <script src="http://storage.aliyun.com/pixels/assets/js/Three.js"></script>
+<script src="http://storage.aliyun.com/pixels/assets/js/tween.min.js"></script>
 <script src="http://storage.aliyun.com/pixels/assets/js/main.js"></script>
 </body>
 </html>
