@@ -569,10 +569,10 @@
             }
 			function getspiltposition(c){
 				if(c.w!=0&&c.h!=0){
-					spiltx=c.x/imgw;
-					spilty=c.y/imgh;
-					spiltw=c.w/imgw;
-					spilth=c.h/imgh;
+					spiltx=c.x/$('#imageholder').width();
+					spilty=c.y/$('#imageholder').height();
+					spiltw=c.w/$('#imageholder').width();
+					spilth=c.h/$('#imageholder').height();
 				}
 				else{
 					 spiltx=0;
