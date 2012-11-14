@@ -25,7 +25,7 @@
                     echo mdate($datestring,  strtotime($tag_info['createdate']));
                     ?></span></td>
                     <td><span><?php echo $tag_info['likesnum']?></span></td>
-                    <td><a href="/book/<?php echo $tag_info['bestauthorid']?>"><?php echo $tag_info['bestauthorname']?></td>
+                    <td><a href="/book/<?php echo $tag_info['bestauthorid']?>"><?php echo $tag_info['bestauthorname']?></a></td>
                     <td><span class="label"><?php echo $tag_info['worksnum']?></span></td>
                 </tr>            
             </tbody>

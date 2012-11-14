@@ -586,7 +586,7 @@
 			var Icolor=1;
 			var Ipixel=14;
 			var Iprocess=2;
-			var Iwhite=0;
+			var Iwhite=1;
 			
 			$('.Icolorchoice').click(function(){
 				if($(this).html()=='黑白'){

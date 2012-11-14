@@ -286,7 +286,7 @@
 						</div>
 						<div class="btn-group" style="margin:10px;">
 							<a id="Iwhite" class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-							是否除白-否
+							是否除白-是
 							<span class="caret"></span>
 							</a>
 							 <ul class="dropdown-menu">
